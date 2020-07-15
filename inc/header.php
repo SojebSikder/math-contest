@@ -222,7 +222,7 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
       <span class="glyphicon"></span>Notification<?php
      if($notiName)
      {
-                $queryCount = "SELECT * from notifications where status = 'unread' AND user_name='$notiName' OR user_name='all' ";
+                $queryCount = "SELECT * from notifications where status = 'unread' AND user_name='$notiName' ";
                 $fetchCount = $db->select($queryCount);//->fetch_assoc();
 
                 if($fetchCount){
