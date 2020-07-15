@@ -91,8 +91,8 @@ if(isset($_POST['submit']))
 <form class="form-signin" action="" method="POST">
 
       <h1 class="h3 mb-3 font-weight-normal">Register as a Instructor</h1>
-      <p>You can't login with instructor account until Admin aprove your account. <br>
-      Contact Admin for aprove you ID</p>
+      <p> <mark> <strong>You can't login</strong>  with instructor account until Admin aprove your account. <br>
+      Contact Admin for aprove you ID</mark> </p>
       
       <span id="availability"></span>
 

@@ -52,6 +52,8 @@ if(isset($_POST['submit']))
 <form class="form-signin" action="" method="POST">
       
       <h1 class="h3 mb-3 font-weight-normal">Sign In as Instructor</h1>
+      <p> <mark> <strong>You can't login</strong>  with instructor account until Admin aprove your account. <br>
+      Contact Admin for aprove you ID</mark> </p>
 
         <div class="m-input-group">
             <input type="email" name="email" id="inputEmail" class="m-form-control text-dark" required autofocus>
