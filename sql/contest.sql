@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2020 at 12:32 PM
+-- Generation Time: Jul 15, 2020 at 01:46 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -73,9 +73,7 @@ CREATE TABLE `answere` (
 --
 
 INSERT INTO `answere` (`id`, `user_ans`, `user_email`, `user_id`, `user_name`, `user_image`, `user_login`, `user_type`, `ipadd`, `ans_linkid`, `ans_cat`, `user_unique_id`) VALUES
-(3, 40, 'sikdersojeb@gmail.com', 2, 'sikdersojeb', 'img/profile/Amazing_Spiderman-wallpaper-10278390.jpg1593591408-1064-Amazing_Spiderman-wallpaper-10278390.jpg', 'sikdersojeb@gmail.com', 'user', '::1', '15f0c104d33a10', 'Daily Math Challenge', '13b3d70197c340'),
-(4, 20, 'sikdersojeb@gmail.com', 2, 'sikdersojeb', 'img/profile/Amazing_Spiderman-wallpaper-10278390.jpg1593591408-1064-Amazing_Spiderman-wallpaper-10278390.jpg', 'sikdersojeb@gmail.com', 'user', '::1', '15f0c105fc3acd', 'Weekly Math Challenge', '13b3d70197c340'),
-(5, 60, 'sojebsikder@gmail.com', 6, 'sojebsikder', '', 'sojebsikder@gmail.com', 'user', '::1', '15f0d888f6078a', 'Daily Math Challenge', '15f0c17af2e6c9');
+(1, 60, 'sojebsikder@gmail.com', 6, 'sojebsikder', '', 'sojebsikder@gmail.com', 'user', '::1', '15f0d888f6078a', 'Daily Math Challenge', '15f0c17af2e6c9');
 
 -- --------------------------------------------------------
 
@@ -198,8 +196,7 @@ CREATE TABLE `instructor` (
 
 INSERT INTO `instructor` (`id`, `ins_name`, `ins_login`, `ins_pass`, `ins_registered`, `ins_status`, `ins_display_name`, `ins_email`, `ins_type`, `ipadd`, `ins_city`, `ins_state`, `ins_country`, `ins_bio`, `ins_image`, `ins_user_id`, `ins_role`, `ins_date`) VALUES
 (1, 'sojebsikder', 'sojebsikder@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-14 10:12:41', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'instructor', '::1', 'Gazipur', 'Dhaka', 'Bangladesh', 'I\'m Programmer', 'img/profile/Assassins_Creed_4-wallpaper-9669711.jpg1594462503-3794-Assassins_Creed_4-wallpaper-9669711.jpg', '15e33e46e4a171', 'admin', '2020-05-11'),
-(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-04 09:03:41', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'instructor', '::1', '', '', '', '', '', '15eff156824063', 'instructor', '0000-00-00'),
-(11, 'qw', 'qw@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-14 09:37:13', 'deactive', 'qw', 'qw@gmail.com', 'instructor', '::1', NULL, NULL, NULL, NULL, NULL, '15f0d7cc9133cb', NULL, '0000-00-00');
+(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-04 09:03:41', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'instructor', '::1', '', '', '', '', '', '15eff156824063', 'instructor', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -219,8 +216,7 @@ CREATE TABLE `leaderboard` (
 --
 
 INSERT INTO `leaderboard` (`id`, `user_email`, `user_id`, `points`) VALUES
-(2, 'sikdersojeb@gmail.com', '13b3d70197c340', '7'),
-(3, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '2');
+(1, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '2');
 
 -- --------------------------------------------------------
 
@@ -244,7 +240,10 @@ CREATE TABLE `notifications` (
 INSERT INTO `notifications` (`id`, `user_name`, `type`, `message`, `status`, `date`) VALUES
 (1, 'sojebsikder', 'info', 'Dear, sojebsikder Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'read', '2020-07-13 12:32:49'),
 (2, 'sojebsikder', 'info', 'Dear, sojebsikder Your order process have completed. Please check your email in 10 minute to get your product', 'read', '2020-07-13 12:53:57'),
-(3, 'sikdersojeb', 'info', 'Dear, sikdersojeb Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'read', '2020-07-13 17:00:27');
+(3, 'sikdersojeb', 'info', 'Dear, sikdersojeb Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'read', '2020-07-13 17:00:27'),
+(4, 'sojebsikder', 'info', 'Dear, sojebsikder Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'unread', '2020-07-15 12:33:22'),
+(5, 'sojebsikder', 'info', 'Dear, sojebsikder Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'unread', '2020-07-15 12:38:52'),
+(6, 'sojebsikder', 'info', 'Dear, sojebsikder Your order process have completed. Please check your email in 10 minutes to get your product', 'read', '2020-07-15 12:40:01');
 
 -- --------------------------------------------------------
 
@@ -271,8 +270,7 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `date`, `username`, `status`, `b_number`, `b_trans`, `user_id`, `product_id`, `useremail`, `via`) VALUES
-(1, 'CSS PDF BOOK', '2020-07-13', 'sojebsikder', 1, '01833962595', ' fdgf484d8fgfgdfdf1212', '15e33e28c2d1fa', '15f0ae303db484', 'sojebsikder@gmail.com', 'sojebsikder@gmail.com'),
-(2, 'PHP Tutorial PDF Book', '2020-07-13', 'sikdersojeb', 0, '01833962595', ' fdgf484d8fgfgdfdf1212', '13b3d70197c340', '15f0aaeaa7d578', 'sikdersojeb@gmail.com', 'sikdersojeb@gmail.com');
+(1, 'PHP Tutorial PDF Book', '2020-07-15', 'sojebsikder', 1, '01833962595', ' ttttfcgg', '15e33e46e4a171', '15f0aaeaa7d578', 'sojebsikder@gmail.com', 'sojebsikder@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -293,8 +291,7 @@ CREATE TABLE `orders_detail` (
 --
 
 INSERT INTO `orders_detail` (`id`, `orders_id`, `price`, `quantity`, `product_id`) VALUES
-(1, 1, '70', 1, '15'),
-(2, 2, '90', 1, '15');
+(1, 1, '90', 1, '15f0aaeaa7d578');
 
 -- --------------------------------------------------------
 
@@ -333,7 +330,7 @@ CREATE TABLE `post` (
 INSERT INTO `post` (`id`, `post_title`, `post_author`, `post_date`, `post_modified`, `post_content`, `post_image`, `category`, `problem`, `post_ans`) VALUES
 (1, 'problem 1', 'sojebsikder', '2020-07-13 07:42:05', '2020-07-13 07:42:05', '20+20', 'img/post_image/adidas_Water_Drops-wallpaper-10653846.jpg1594626125-2816-adidas_Water_Drops-wallpaper-10653846.jpg', 'Daily Math Challenge', '15f0c104d33a10', 40),
 (2, 'problem 1', 'sojebsikder', '2020-07-13 07:42:23', '2020-07-13 07:42:23', '10+10', 'img/post_image/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594626143-4139-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', 'Weekly Math Challenge', '15f0c105fc3acd', 20),
-(3, 'problem 3', 'sojebsikder', '2020-07-14 10:27:27', '2020-07-14 10:27:27', '30+30', 'img/post_image/1594722447-8189-', 'Daily Math Challenge', '15f0d888f6078a', 60);
+(3, 'problem 3', 'sojebsikder', '2020-07-14 10:27:27', '2020-07-14 10:27:27', '30+30 = ?', 'img/post_image/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594792324-2278-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', 'Daily Math Challenge', '15f0d888f6078a', 60);
 
 -- --------------------------------------------------------
 
@@ -390,7 +387,6 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `user_name`, `user_login`, `user_pass`, `user_registered`, `user_status`, `display_name`, `user_email`, `type`, `ipadd`, `user_date`, `user_city`, `user_state`, `user_country`, `user_bio`, `user_image`, `user_id`) VALUES
-(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2001-06-30 06:22:17', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'user', '::1', '2020-01-13', 'Gazipur', 'Dhaka', 'Bangladesh', 'fdf', 'img/profile/Amazing_Spiderman-wallpaper-10278390.jpg1593591408-1064-Amazing_Spiderman-wallpaper-10278390.jpg', '13b3d70197c340'),
 (6, 'sojebsikder', 'sojebsikder@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', '', '15f0c17af2e6c9');
 
 -- --------------------------------------------------------
@@ -439,7 +435,9 @@ CREATE TABLE `submitted` (
 INSERT INTO `submitted` (`id`, `user_ans`, `user_email`, `user_unique_id`, `ip`, `ans_linkid`, `ans_cat`, `date`) VALUES
 (3, 40, 'sikdersojeb@gmail.com', '13b3d70197c340', '::1', '15f0c104d33a10', 'Daily Math Challenge', '2020-07-14 05:06:39'),
 (4, 20, 'sikdersojeb@gmail.com', '13b3d70197c340', '::1', '15f0c105fc3acd', 'Weekly Math Challenge', '2020-07-14 05:06:44'),
-(5, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-14 10:27:47');
+(5, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-14 10:27:47'),
+(6, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-15 08:12:24'),
+(7, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-15 10:42:47');
 
 -- --------------------------------------------------------
 
@@ -718,7 +716,7 @@ ALTER TABLE `admin_register`
 -- AUTO_INCREMENT for table `answere`
 --
 ALTER TABLE `answere`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `blog_comments`
@@ -760,25 +758,25 @@ ALTER TABLE `instructor`
 -- AUTO_INCREMENT for table `leaderboard`
 --
 ALTER TABLE `leaderboard`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -814,7 +812,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `submitted`
 --
 ALTER TABLE `submitted`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tb_link`
@@ -844,7 +842,7 @@ ALTER TABLE `web`
 -- AUTO_INCREMENT for table `winner_list`
 --
 ALTER TABLE `winner_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

@@ -32,13 +32,14 @@ include "inc/header.php";
     ?>
    
         <tr>
-            <td><a class=""><?php echo $i;?></a></td>
+            <td><a><?php echo $i;?></a></td>
             <td><a href="profile.php?user=<?php echo $name['user_name'];?>"><?php echo $name['user_name'];?></a></td>
-            <td><?php echo $submitted['points']; ?></td>
+            <td><?php echo $submitted['points'];?></td>
         </tr>
     
- <?php }
-    } ?>
+ <?php      }
+        } 
+    ?>
     </table>
 
     </div>
