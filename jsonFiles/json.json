@@ -1,0 +1,6 @@
+[
+	{"name":"Computer", "price":3000, "qnty":3, "description":"This is Computer"},
+
+	{"name":"Mobile", "price":1000, "qnty":2, "description":"This is Mobile"}
+]
+
