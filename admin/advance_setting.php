@@ -21,7 +21,7 @@ if(isset($_POST['reset'])){
         $db->delete("DELETE FROM contact");
     }
 
-    if(isset($_POST['notifications'])){
+    if(isset($_POST['notification'])){
         $db->delete("DELETE FROM notifications");
     }
 
