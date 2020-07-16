@@ -5,7 +5,6 @@ session_start();
 include "../config/conn.php";
 include "../lib/Database.php";
 include "../helpers/Format.php";
-
 define("BASE","assets/");
 
 $db = new Database();
@@ -112,6 +111,17 @@ if($login){
                 <li class="ic-charts"><a href="all-user.php"><span>All User</span></a></li>
                 <li class="ic-charts"><a href="instructor-request.php"><span>Instructor Request</span></a></li>
                 <li class="ic-charts"><a href="../index.php"><span>Visit Website</span></a></li>
+                <li class="ic-charts"><a><span>Visitor : 
+                                        <?php  $query  = "SELECT * FROM visitor";
+                                            $result = $db->select($query);
+                                            //checking query error
+
+                                            if(!$result){
+                                                echo "Retriving Query Erro<br>";
+                                            }
+                                            $total_visitor = mysqli_num_rows($result);
+                                            echo $total_visitor;
+     ?></span></a></li>
             </ul>
         </div>
         <div class="clear">
