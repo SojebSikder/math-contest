@@ -64,7 +64,7 @@ if(isset($_REQUEST['del'])){
                         <td><?php echo $orderRow['description'];?></td>
                         <td><img class="m-img m-img-thumbnail" src="../<?php echo $orderRow['image'];?>" alt=""></td>
                         <td><?php echo $orderRow['url'];?></td>
-                        <td><a href="">Edit</a>|<a href="?del=<?php echo $orderRow['product_id'];?>">Delete</a></td>
+                        <td><a href="editproduct.php?edit=<?php echo $orderRow['product_id'];?>">Edit</a>|<a href="?del=<?php echo $orderRow['product_id'];?>">Delete</a></td>
                     </tr>
 
                 <?php   } 
