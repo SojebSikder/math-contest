@@ -28,8 +28,8 @@ if(isset($_GET['error'])){
     <meta charset="UTF-8">
     <link rel="icon" href="<?php echo BASE;?>images/logo/icon.png" type="image/png" sizes="16x16">
 
-    <meta name="description" content="The Math Contest.">
-    <meta name="keywords" content="sojebsoft, sojebsoft download, math, contest">
+    <meta name="description" content="<?php echo web('description'); ?>">
+    <meta name="keywords" content="<?php echo web('keywords'); ?>">
     <meta name="author" content="Sojeb Sikder">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
