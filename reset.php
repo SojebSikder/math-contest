@@ -1,23 +1,26 @@
-<?php include "inc/header.php"; ?>
-
 <?php
+include "inc/header.php"; 
+
 $db = new Database();
 $format = new Format();
 
 if (!isset($_GET["code"])) {
 	echo "Can't find page";
 }
-else{
+
     $ucode = $format->Stext($_GET["code"]);
-}
 
-    $getEmailQuery = "SELECT email FROM ucode WHERE code='$ucode'";
-    $getEmailData = $db->select($getEmailQuery)->fetch_assoc();
+    $getEmailQuery = "SELECT * FROM ucode WHERE code = '$ucode' ";
+    $getEmailData = $db->select($getEmailQuery);
 
-    if (!$getEmailData){
+    if ($getEmailData){
+        $getEmailData = $getEmailData->fetch_assoc();
+    }else{
         echo "No data found";
-        
     }
+
+
+    
 
     if (isset($_POST["submit"])) {
 
@@ -32,16 +35,16 @@ else{
             $psch = $db->delete($query);
 
             if($psch){
-                echo "Password changed successfully";
+                Format::jumpTo("login.php","Password changed successfully");
             }
             else{
-                echo "Password not changed successfully";
+                Format::jumpTo("login.php","Password Not changed successfully");
             }
             
         
         }
         else{
-            echo "Something went wrong";
+            Format::jumpTo("reset.php","something went wrong");
         }
     }
 
@@ -49,7 +52,7 @@ else{
 
 <form class="form-signin" action="" method="POST">
       
-      <h1 class="h3 mb-3 font-weight-normal">Enter new password</h1>
+      <h1 class="h3 mb-3 font-weight-normal text-white">Enter new password</h1>
 
       <label for="inputEmail" class="sr-only">New password</label>
       <input type="text" name="password" id="inputEmail" class="form-control" placeholder="New password" required autofocus>

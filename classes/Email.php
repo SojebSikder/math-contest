@@ -1,32 +1,32 @@
 <?php
-include "../helpers/Format.php";
+//include_once "../helpers/Format.php";
 
 use PHPMailer\PHPMAiler\PHPMailer;
 use PHPMailer\PHPMAiler\SMTP;
 use PHPMailer\PHPMAiler\Exception;
 
-require "../lib/PHPMailer/src/Exception.php";
-require "../lib/PHPMailer/src/PHPMailer.php";
-require "../lib/PHPMailer/src/SMTP.php";
+require "./lib/PHPMailer/src/Exception.php";
+require "./lib/PHPMailer/src/PHPMailer.php";
+require "./lib/PHPMailer/src/SMTP.php";
 
 
-function sendEmail($to, $subject, $body, $header, $attach = false){
+function sendEmail($address, $subject, $body){
 
     $mail = new PHPMailer(true);
     try {
         //Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
         $mail->isSMTP();
-        $mail->HOST = "ssl://smtp.gmail.com";
+        $mail->Host = "smtp.gmail.com";
         $mail->SMTPAuth = true;
-        $mail->Username = "sojebsoft@gmail.com";
-        $mail->Password = "sojeb123";
+        $mail->Username = "sojebsikder7@gmail.com";
+        $mail->Password = "sojebsikder123";
         $mail->SMTPSecure = PHPMAiler::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         //Recipients
         $mail->setFrom("mathcontest@gmail.com","Math Contest");
-        $mail->addAddress("sojebsikder@gmail.com", "Sojeb Sikder");
+        $mail->addAddress($address);
 
 
         //Attachment
@@ -34,8 +34,8 @@ function sendEmail($to, $subject, $body, $header, $attach = false){
 
         //Content
         $mail->isHTML(true);
-        $mail->Subject = "This is subject";
-        $mail->Body = "This is message body";
+        $mail->Subject = $subject;
+        $mail->Body = $body;
 
         $mail->send();
         echo "Message has been sent";
@@ -47,7 +47,7 @@ function sendEmail($to, $subject, $body, $header, $attach = false){
 
 }
 
-sendEmail();
+//sendEmail();
 
 
 
