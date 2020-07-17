@@ -10,7 +10,7 @@ define("BASE","assets/");
 $db = new Database();
 
 if(!isset($_SESSION['admin_login'])) {
-    //Format::jumpTo("login.php", "Login First");
+    Format::jumpTo("login.php", "Login First");
 }
 
   //Get data dor daily challenge
