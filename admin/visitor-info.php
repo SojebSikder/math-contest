@@ -44,7 +44,7 @@ if(isset($_REQUEST['del'])){
                     </tr>
 
                 <?php 
-                    $getorders = $db->select("SELECT * FROM visitor");
+                    $getorders = $db->select("SELECT * FROM visitor ORDER BY id DESC ");
                     if($getorders){
                         $i = 0;
                         while ($orderRow = $getorders->fetch_assoc()) {  
