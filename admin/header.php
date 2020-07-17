@@ -111,7 +111,7 @@ if($login){
                 <li class="ic-charts"><a href="all-user.php"><span>All User</span></a></li>
                 <li class="ic-charts"><a href="instructor-request.php"><span>Instructor Request</span></a></li>
                 <li class="ic-charts"><a href="../index.php"><span>Visit Website</span></a></li>
-                <li class="ic-charts"><a><span>Visitor : 
+                <li class="ic-charts"><a href="visitor-info.php"><span>Visitor : 
                                         <?php  $query  = "SELECT * FROM visitor";
                                             $result = $db->select($query);
                                             //checking query error
