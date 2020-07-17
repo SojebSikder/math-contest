@@ -65,7 +65,7 @@ if(isset($_POST['submit']))
 
           } */
       }
-      if(($isHaveUsername = true) &&  ($isHaveEmail = true)){
+      if(($isHaveUsername = false) &&  ($isHaveEmail = false)){
           $query = "INSERT INTO instructor(ins_user_id,ins_login,ins_name,ins_pass,ins_email,ins_status,ins_display_name,ipadd,ins_type)
           VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
 
@@ -74,7 +74,9 @@ if(isset($_POST['submit']))
           {
             Format::jumpTo("instructor.php",'Account Created Successfully. Please Login');
           }
-      }
+      }else{
+        Format::jumpTo("instructor-register.php", "Account not Created Successfully. Please try again","error");
+     }
 
     }
 

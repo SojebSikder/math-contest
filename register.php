@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
             Format::jumpTo("login.php", "Account Created Successfully. Please Login");
           }
         } */
-    }if(($isHaveUsername = true) &&  ($isHaveEmail = true)){
+    }if(($isHaveUsername = false) &&  ($isHaveEmail = false)){
         $query = "INSERT INTO register(user_id,user_login,user_name,user_pass,user_email,user_status,display_name,ipadd,type)
         VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
 
@@ -66,6 +66,8 @@ if(isset($_POST['submit']))
         if($read){
           Format::jumpTo("login.php", "Account Created Successfully. Please Login");
         }
+      }else{
+         Format::jumpTo("register.php", "Account not Created Successfully. Please try again","error");
       }
   }
   
