@@ -7,11 +7,19 @@ $db = new Database();
 $format = new Format();
 
 
+if(isset($_POST['saveMeta'])){
+    $email   = $format->Stext($_POST['description']);
+    $address = $format->Stext($_POST['keywords']);
+
+    $db->update("UPDATE web SET description = '$email', keywords = '$address'");
+}
+
+
 if(isset($_POST['submit'])){
     $email   = $format->Stext($_POST['email']);
     $address = $format->Stext($_POST['address']);
 
-    $db->insert("UPDATE web SET email = '$email', address = '$address'");
+    $db->update("UPDATE web SET email = '$email', address = '$address'");
 }
 
 //add social network
@@ -45,6 +53,33 @@ if(isset($_REQUEST['delnet'])){
 
  <div class="container">
     <div class="row">
+
+
+    <div class="m-justify col-xs-6 col-sm-3">
+            <div class="m-card">
+                <div class="m-card-body">
+
+            <h4>Web Meta</h4>
+        
+            <form method="post" action="">
+
+            <div class="m-input-group">
+            <a>Web Description:</a>
+                <textarea  class="text-dark m-form-control" name="description" placeholder="Description"><?php echo web('description'); ?></textarea>
+            </div>
+
+            <div class="m-input-group">
+                <a>Web Keywords:</a>
+                <textarea class="text-dark m-form-control" name="keywords" placeholder="Keywords"><?php echo web('keywords'); ?></textarea>
+            </div>
+
+            <input class="m-btn waves-effect" type="submit" name="saveMeta" value="Save">
+
+            </div>
+           </div>
+        </div>
+
+
 
 
         <div class="m-justify col-xs-6 col-sm-3">
