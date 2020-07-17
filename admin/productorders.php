@@ -68,6 +68,7 @@ if(isset($_REQUEST['id'])){
                         <th>Buyer</th>
                         <th>bKash Number</th>
                         <th>bKash TransectionID</th>
+                        <th>Via</th>
                         <th>Action</th>
                     </tr>
 
@@ -88,6 +89,7 @@ if(isset($_REQUEST['id'])){
                         <td><?php echo $orderRow['username'];?></td>
                         <td><?php echo $orderRow['b_number'];?></td>
                         <td><?php echo $orderRow['b_trans'];?></td>
+                        <td><?php echo $orderRow['via'];?></td>
                         <td><?php if($orderRow['status'] == 0){?>
                          <a href="?id=<?php echo $orderRow['product_id'];?>&transID=<?php echo $orderRow['b_trans'];?>&username=<?php echo $orderRow['username'];?>">Complete</a></td>
                         <?php                            
