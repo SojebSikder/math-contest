@@ -28,37 +28,30 @@ if(isset($_POST['submit']))
  $queryGetName = "SELECT * FROM register";
  $GetName = $db->select($queryGetName);
 
+  $isHaveUsername = true;
+  $isHaveEmail = true;
+
  if($GetName)
  {
-  $isHaveUsername = false;
-  $isHaveEmail = false;
 
-  while($GetNameName = $GetName->fetch_assoc())
-    {
+
+  while($GetNameName = $GetName->fetch_assoc()){
+
         $username  = $GetNameName['user_name'];
         $useremail = $GetNameName['user_login'];
         // end code for getting submitted answreev
 
         if($name == $username){
           echo "<center><span class='text-danger float-center'>Try with another username.</span></center>";
-          $isHaveUsername = true;
+          $isHaveUsername = false;
         }
-        elseif($email == $useremail){
+        if($email == $useremail){
           echo "<center><span class='text-danger float-center'>Try with another Email Address.</span></center>";
-          $isHaveEmail = true;
+          $isHaveEmail = false;
         }
-      /*  else{
-
-          $query = "INSERT INTO register(user_id,user_login,user_name,user_pass,user_email,user_status,display_name,ipadd,type)
-          VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
-
-          $read =$db->insert($query);
-          if($read)
-          {
-            Format::jumpTo("login.php", "Account Created Successfully. Please Login");
-          }
-        } */
-    }if(($isHaveUsername = false) &&  ($isHaveEmail = false)){
+}
+    
+    if(($isHaveUsername == true) &&  ($isHaveEmail == true)){
         $query = "INSERT INTO register(user_id,user_login,user_name,user_pass,user_email,user_status,display_name,ipadd,type)
         VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
 

@@ -29,12 +29,12 @@ if(isset($_POST['submit']))
     $queryGetName = "SELECT * FROM instructor";
     $GetName = $db->select($queryGetName);
 
-    
+    $isHaveUsername = true;
+    $isHaveEmail = true;
 
   if($GetName)
     {
-    $isHaveUsername = false;
-    $isHaveEmail = false;
+
 
     while($GetNameName = $GetName->fetch_assoc())
       {
@@ -45,27 +45,17 @@ if(isset($_POST['submit']))
           if($name == $username)
           {
             echo "<center><span class='text-danger float-center'>Try with another username.</span></center>";
-            $isHaveUsername = true;
+            $isHaveUsername = false;
           }
-          elseif($email == $useremail)
+          if($email == $useremail)
           {
             echo "<center><span class='text-danger float-center'>Try with another Email Address.</span></center>";
-            $isHaveEmail = true;
+            $isHaveEmail = false;
           }
-         /* else{
 
-            $query = "INSERT INTO instructor(ins_user_id,ins_login,ins_name,ins_pass,ins_email,ins_status,ins_display_name,ipadd,ins_type)
-            VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
-
-            $read =$db->insert($query);
-            if($read)
-            {
-              Format::jumpTo("instructor.php",'Account Created Successfully. Please Login');
-            }
-
-          } */
       }
-      if(($isHaveUsername = false) &&  ($isHaveEmail = false)){
+
+      if(($isHaveUsername == true) &&  ($isHaveEmail == true)){
           $query = "INSERT INTO instructor(ins_user_id,ins_login,ins_name,ins_pass,ins_email,ins_status,ins_display_name,ipadd,ins_type)
           VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
 
