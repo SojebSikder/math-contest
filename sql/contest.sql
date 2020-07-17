@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2020 at 01:46 PM
+-- Generation Time: Jul 17, 2020 at 10:38 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -67,13 +67,6 @@ CREATE TABLE `answere` (
   `ans_cat` varchar(200) NOT NULL,
   `user_unique_id` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `answere`
---
-
-INSERT INTO `answere` (`id`, `user_ans`, `user_email`, `user_id`, `user_name`, `user_image`, `user_login`, `user_type`, `ipadd`, `ans_linkid`, `ans_cat`, `user_unique_id`) VALUES
-(1, 60, 'sojebsikder@gmail.com', 6, 'sojebsikder', '', 'sojebsikder@gmail.com', 'user', '::1', '15f0d888f6078a', 'Daily Math Challenge', '15f0c17af2e6c9');
 
 -- --------------------------------------------------------
 
@@ -211,13 +204,6 @@ CREATE TABLE `leaderboard` (
   `points` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `leaderboard`
---
-
-INSERT INTO `leaderboard` (`id`, `user_email`, `user_id`, `points`) VALUES
-(1, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '2');
-
 -- --------------------------------------------------------
 
 --
@@ -243,7 +229,8 @@ INSERT INTO `notifications` (`id`, `user_name`, `type`, `message`, `status`, `da
 (3, 'sikdersojeb', 'info', 'Dear, sikdersojeb Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'read', '2020-07-13 17:00:27'),
 (4, 'sojebsikder', 'info', 'Dear, sojebsikder Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'unread', '2020-07-15 12:33:22'),
 (5, 'sojebsikder', 'info', 'Dear, sojebsikder Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'unread', '2020-07-15 12:38:52'),
-(6, 'sojebsikder', 'info', 'Dear, sojebsikder Your order process have completed. Please check your email in 10 minutes to get your product', 'read', '2020-07-15 12:40:01');
+(6, 'sojebsikder', 'info', 'Dear, sojebsikder Your order process have completed. Please check your email in 10 minutes to get your product', 'read', '2020-07-15 12:40:01'),
+(7, 'sojebsikder', 'info', 'Dear, sojebsikder Your order have been place. Wait 1/2 business day for your order ready. After your order ready we will let you know.', 'unread', '2020-07-17 13:01:37');
 
 -- --------------------------------------------------------
 
@@ -270,7 +257,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `name`, `date`, `username`, `status`, `b_number`, `b_trans`, `user_id`, `product_id`, `useremail`, `via`) VALUES
-(1, 'PHP Tutorial PDF Book', '2020-07-15', 'sojebsikder', 1, '01833962595', ' ttttfcgg', '15e33e46e4a171', '15f0aaeaa7d578', 'sojebsikder@gmail.com', 'sojebsikder@gmail.com');
+(1, 'PHP Tutorial PDF Book', '2020-07-15', 'sojebsikder', 1, '01833962595', ' ttttfcgg', '15e33e46e4a171', '15f0aaeaa7d578', 'sojebsikder@gmail.com', 'sojebsikder@gmail.com'),
+(2, 'PHP Tutorial PDF Book', '2020-07-17', 'sojebsikder', 0, '45245', ' 44524', '15f0c17af2e6c9', '15f0aaeaa7d578', 'sojebsikder@gmail.com', 'sojebsikder@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -291,7 +279,8 @@ CREATE TABLE `orders_detail` (
 --
 
 INSERT INTO `orders_detail` (`id`, `orders_id`, `price`, `quantity`, `product_id`) VALUES
-(1, 1, '90', 1, '15f0aaeaa7d578');
+(1, 1, '90', 1, '15f0aaeaa7d578'),
+(2, 2, '90', 1, '15f0aaeaa7d578');
 
 -- --------------------------------------------------------
 
@@ -323,15 +312,6 @@ CREATE TABLE `post` (
   `post_ans` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `post`
---
-
-INSERT INTO `post` (`id`, `post_title`, `post_author`, `post_date`, `post_modified`, `post_content`, `post_image`, `category`, `problem`, `post_ans`) VALUES
-(1, 'problem 1', 'sojebsikder', '2020-07-13 07:42:05', '2020-07-13 07:42:05', '20+20', 'img/post_image/adidas_Water_Drops-wallpaper-10653846.jpg1594626125-2816-adidas_Water_Drops-wallpaper-10653846.jpg', 'Daily Math Challenge', '15f0c104d33a10', 40),
-(2, 'problem 1', 'sojebsikder', '2020-07-13 07:42:23', '2020-07-13 07:42:23', '10+10', 'img/post_image/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594626143-4139-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', 'Weekly Math Challenge', '15f0c105fc3acd', 20),
-(3, 'problem 3', 'sojebsikder', '2020-07-14 10:27:27', '2020-07-14 10:27:27', '30+30 = ?', 'img/post_image/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594792324-2278-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', 'Daily Math Challenge', '15f0d888f6078a', 60);
-
 -- --------------------------------------------------------
 
 --
@@ -354,7 +334,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `qnty`, `description`, `image`, `product_id`, `url`) VALUES
-(1, 'PHP Tutorial PDF Book', '90', 10, 'This is PHP Tutorial PDF Book', 'img/product/adidas_Water_Drops-wallpaper-10653846.jpg1594535594-8967-adidas_Water_Drops-wallpaper-10653846.jpg', '15f0aaeaa7d578', '');
+(1, 'PHP Tutorial PDF Book', '90', 10, 'This is PHP Tutorial PDF Book', 'img/product/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594896948-5397-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', '15f0aaeaa7d578', '');
 
 -- --------------------------------------------------------
 
@@ -387,7 +367,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `user_name`, `user_login`, `user_pass`, `user_registered`, `user_status`, `display_name`, `user_email`, `type`, `ipadd`, `user_date`, `user_city`, `user_state`, `user_country`, `user_bio`, `user_image`, `user_id`) VALUES
-(6, 'sojebsikder', 'sojebsikder@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', '', '15f0c17af2e6c9');
+(6, 'sojebsikder', 'sojebsikder@gmail.com', 'c0035b21cc82f4cc08b169ba252458d3', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', '', '15f0c17af2e6c9');
 
 -- --------------------------------------------------------
 
@@ -427,17 +407,6 @@ CREATE TABLE `submitted` (
   `ans_cat` varchar(200) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `submitted`
---
-
-INSERT INTO `submitted` (`id`, `user_ans`, `user_email`, `user_unique_id`, `ip`, `ans_linkid`, `ans_cat`, `date`) VALUES
-(3, 40, 'sikdersojeb@gmail.com', '13b3d70197c340', '::1', '15f0c104d33a10', 'Daily Math Challenge', '2020-07-14 05:06:39'),
-(4, 20, 'sikdersojeb@gmail.com', '13b3d70197c340', '::1', '15f0c105fc3acd', 'Weekly Math Challenge', '2020-07-14 05:06:44'),
-(5, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-14 10:27:47'),
-(6, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-15 08:12:24'),
-(7, 60, 'sojebsikder@gmail.com', '15f0c17af2e6c9', '::1', '15f0d888f6078a', 'Daily Math Challenge', '2020-07-15 10:42:47');
 
 -- --------------------------------------------------------
 
@@ -522,15 +491,17 @@ CREATE TABLE `web` (
   `about_us` text NOT NULL,
   `contact_us` text NOT NULL,
   `email` varchar(200) NOT NULL,
-  `address` varchar(200) NOT NULL
+  `address` varchar(200) NOT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `keywords` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `web`
 --
 
-INSERT INTO `web` (`id`, `web_title`, `web_slogan`, `web_modified`, `about_us`, `contact_us`, `email`, `address`) VALUES
-(1, 'Math Contest', 'Prove yourself!', '0000-00-00 00:00:00', 'We are from Bhawal Badre Alom Govt. College,Gazipur,Bangladesh We organize Math Contest for Intermediate Student to developing math skill.', ' 27 Road Gazipura              Gazipur,Bangladesh             Email:sojebsoft@gmail.com', 'sojebsoft@gmail.com', 'gazipura');
+INSERT INTO `web` (`id`, `web_title`, `web_slogan`, `web_modified`, `about_us`, `contact_us`, `email`, `address`, `description`, `keywords`) VALUES
+(1, 'Math Contest', 'Prove yourself!', '0000-00-00 00:00:00', 'We are from Bhawal Badre Alom Govt. College,Gazipur,Bangladesh We organize Math Contest for Intermediate Student to developing math skill.', ' 27 Road Gazipura              Gazipur,Bangladesh             Email:sojebsoft@gmail.com', 'sojebsoft@gmail.com', 'gazipura', 'The Math Contest.', 'sojebsoft, sojebsoft download, math, contest');
 
 -- --------------------------------------------------------
 
@@ -764,19 +735,19 @@ ALTER TABLE `leaderboard`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders_detail`
 --
 ALTER TABLE `orders_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -824,7 +795,7 @@ ALTER TABLE `tb_link`
 -- AUTO_INCREMENT for table `ucode`
 --
 ALTER TABLE `ucode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visitor`
