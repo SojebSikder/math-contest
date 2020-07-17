@@ -48,16 +48,21 @@ if(isset($_GET['id'])){
 ?>
 
 
-<div class="m-container">
+<div class="container" style="width:95%;">
 
             <h3 class="text-info">Buy Items here</h3>
 
             <?php
             if($productExe){
 
+                $count=0;
             while ($product = $productExe->fetch_assoc()){
 
+                if ($count == 0)
+                echo "<div class='row'>";
+
             ?>
+            <div class="col-md-3">
             <div class="m-justify">
                 <div class="m-card">
                     <div class="m-card-body">
@@ -66,16 +71,24 @@ if(isset($_GET['id'])){
                         <p><img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" alt=""></p>
                         <p class="m-box"><?php echo $product['description']; ?></p>
                        <a class="m-alert m-alert-success">Price: <?php echo $product['price']; ?>TK</a>
-                       <a class="alert alert-secondary">Stock : <?php echo $product['qnty']; ?></a>
-
-                                     
+         
                        <hr>
                       <a class="m-btn m-btn-block m-btn-success waves-effect" href="?id=<?php echo $product['product_id']; ?>">Add to Cart</a>
                     </div>
                 </div>
             </div>
+            </div>
 
-            <?php }
+            
+            <?php
+            $count++;
+            if($count==4)
+            {
+                echo "</div>";
+                $count=0;
+            }
+
+         }
             
         }else{
             echo "<center><h3 class='m-box'>No Item have to buy</h3></center>";
