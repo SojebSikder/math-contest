@@ -24,8 +24,9 @@ if(isset($_POST['postProduct'])){
     $price = $format->Stext($_POST['price']);
     $qnty = $format->Stext($_POST['qnty']);
     $desc = $format->Stext($_POST['desc']);
+    $keywords = $format->Stext($_POST['keywords']);
 
-    $db->update("UPDATE product SET name ='$name', price ='$price', qnty='$qnty', description='$desc' 
+    $db->update("UPDATE product SET name ='$name', price ='$price', qnty='$qnty', description='$desc', meta_keywords='$keywords' 
     WHERE product_id='$editID'");
 }
 
@@ -123,7 +124,12 @@ if(isset($_POST['postFile'])){
 
                 <div class="m-input-group">
                     <a>Description</a>
-                    <textarea name="desc" type="text" class="m-form-control text-dark" required><?php echo $GetProduct['description'];?></textarea>
+                    <textarea name="desc" class="m-form-control text-dark" required><?php echo $GetProduct['description'];?></textarea>
+                </div>
+
+                <div class="m-input-group">
+                    <a>Keywords</a>
+                    <textarea name="keywords" class="m-form-control text-dark"><?php echo $GetProduct['meta_keywords'];?></textarea>
                 </div>
 
                 <hr>
