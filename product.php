@@ -61,14 +61,14 @@ if(isset($_REQUEST['id'])){
 
             <?php if($product['image']){ ?>
                 <div class="mySlides ">
-                    <div class="numbertext">1/3</div>
+                    <div class="numbertext"></div>
                     <img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" style="width:100%;max-height: 500px;" alt="">
                 </div>
             <?php }?>
 
             <?php if($product['image2']){ ?>
                 <div class="mySlides ">
-                    <div class="numbertext">2/3</div>
+                    <div class="numbertext"></div>
                     <img class="m-img m-img-thumbnail" src="<?php echo $product['image2'];?>" style="width:100%;max-height: 500px;" alt="">
                     <div class="text">Caption Text</div>
                 </div>
@@ -76,7 +76,7 @@ if(isset($_REQUEST['id'])){
 
             <?php if($product['image3']){ ?>
                 <div class="mySlides ">
-                    <div class="numbertext">3/3</div>
+                    <div class="numbertext"></div>
                     <img class="m-img m-img-thumbnail" src="<?php echo $product['image3'];?>" style="width:100%;max-height: 500px;" alt="">
                     <div class="text">Caption Text</div>
                 </div>
