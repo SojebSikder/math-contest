@@ -11,6 +11,7 @@ if(isset($_POST['postProduct'])){
     $price = $format->Stext($_POST['price']);
     $qnty = $format->Stext($_POST['qnty']);
     $desc = $format->Stext($_POST['desc']);
+    $keywords = $format->Stext($_POST['keywords']);
 
     $UId = uniqid(true);
 
@@ -60,8 +61,8 @@ if(isset($_POST['postProduct'])){
      $addFile = "assets/file/$filename".$rnd."-".$filename;
 
 
-    $db->insert("INSERT INTO product(product_id ,name, price, qnty, description, image, image2, image3, url) 
-        VALUES('$UId' ,'$name', '$price', '$qnty', '$desc', '$add1', '$add2', '$add3', '$addFile')");
+    $db->insert("INSERT INTO product(product_id ,name, price, qnty, description, image, image2, image3, url, meta_keywords) 
+        VALUES('$UId' ,'$name', '$price', '$qnty', '$desc', '$add1', '$add2', '$add3', '$addFile', '$keywords')");
 
 }
 
@@ -96,8 +97,13 @@ if(isset($_POST['postProduct'])){
                 </div>
 
                 <div class="m-input-group">
-                    <textarea name="desc" type="text" class="m-form-control text-dark" required></textarea>
+                    <textarea name="desc" class="m-form-control text-dark" required></textarea>
                     <label>Description</label>
+                </div>
+
+                <div class="m-input-group">
+                    <textarea name="keywords" class="m-form-control text-dark"></textarea>
+                    <label>Keywords</label>
                 </div>
 
                 <div>

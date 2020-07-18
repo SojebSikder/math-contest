@@ -58,7 +58,7 @@ if(isset($_GET['error'])){
 
 <?php
 // header image
-if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERVER['PHP_SELF']) == "edit-panel.php" || basename($_SERVER['PHP_SELF']) == "product.php"))
+if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERVER['PHP_SELF']) == "edit-panel.php"))
 {
   ?>
 
@@ -140,7 +140,7 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
     ?>
 
     <?php
-//Get data dor daily challenge
+//Get data for daily challenge
 
    // $ins_username= isset($_SESSION['ins_name']);
     $username = isset($_SESSION['name']);
