@@ -49,18 +49,7 @@ if(isset($_GET['error'])){
   <script src="<?php echo BASE;?>css/material/material.js"></script>
   
 <!--</>-->
-<style>
-  h1,h2,h3,h4,h5,p,a,ul{
-      font-weight: 400;
-      /*color: #5b5b5b;*/
-    }
-  .border {
-    display: inline-flex;
-    width: 80px;
-    height: 80px;
-    margin: 6px;
-  }
-  </style>
+
   
  <title>Math Contest</title>
 </head>
@@ -69,7 +58,7 @@ if(isset($_GET['error'])){
 
 <?php
 // header image
-if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERVER['PHP_SELF']) == "edit-panel.php"))
+if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERVER['PHP_SELF']) == "edit-panel.php" || basename($_SERVER['PHP_SELF']) == "product.php"))
 {
   ?>
 
