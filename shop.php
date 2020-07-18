@@ -68,7 +68,7 @@ if(isset($_GET['id'])){
                     <div class="m-card-body">
                         <h3><?php echo $product['name']; ?></h3>
                         <hr>
-                        <p><a href="product.php?id=<?php echo $product['product_id']; ?>"><img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" alt=""></a></p>
+                        <p><a href="product.php?productID=<?php echo $product['product_id']; ?>"><img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" alt=""></a></p>
                         <p class="m-box"><?php echo $product['description']; ?></p>
                        <a class="m-alert m-alert-success">Price: <?php echo $product['price']; ?>TK</a>
          

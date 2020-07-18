@@ -1,14 +1,50 @@
 <?php 
 include "inc/header.php";
+require "classes/Item.php";
 
 $db = new Database();
 $format = new Format();
 
-$id = $format->Stext($_REQUEST['id']);
+$ids = $format->Stext($_REQUEST['productID']);
+$product = $db->select("SELECT * FROM product WHERE product_id = '$ids' ")->fetch_assoc();
 
-$product = $db->select("SELECT * FROM product WHERE product_id = '$id' ")->fetch_assoc();
 
-//<p><img class="m-img m-img-thumbnail" src="<?php echo $product['image'];" alt=""></p>
+
+//Add to cart
+if(isset($_REQUEST['id'])){
+
+    $id = $format->Stext($_REQUEST['id']);
+    
+    $resultExe = $db->select("SELECT * FROM product WHERE product_id = '$id'");
+    $product = $resultExe->fetch_assoc();
+
+    $item = new Item();
+    $item->id       = $product['product_id'];
+    $item->name     = $product['name'];
+    $item->price    = $product['price'];
+    $item->quantity = 1;
+
+    //Check product is existing in cart
+    $index = -1;
+    if(isset($_SESSION['cart'])){
+        $cart = unserialize(serialize($_SESSION['cart']));
+        for ($i = 0; $i < count($cart); $i++) 
+            if($cart[$i]->id == $_GET['id']){
+                $index = $i;
+                break;
+            }
+    }
+        if($index == -1)
+            $_SESSION['cart'][] = $item;
+        else {
+            $cart[$index]->quantity++;
+            $_SESSION['cart'] = $cart;
+        }
+
+        Format::jumpTo("shop.php","");
+
+    }
+//End add to cart
 ?>
 
 
@@ -27,7 +63,6 @@ $product = $db->select("SELECT * FROM product WHERE product_id = '$id' ")->fetch
                 <div class="mySlides ">
                     <div class="numbertext">1/3</div>
                     <img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" style="width:100%;max-height: 500px;" alt="">
-                    <div class="text">Caption Text</div>
                 </div>
             <?php }?>
 
@@ -64,7 +99,7 @@ $product = $db->select("SELECT * FROM product WHERE product_id = '$id' ")->fetch
                 <a class="m-alert m-alert-success">Price: <?php echo $product['price']; ?>TK</a>
             <hr>
             Product Description:<p class="m-box"><?php echo $product['description']; ?></p>
-            <input type="button" class="m-btn waves-effect m-btn-success" value="Add to Cart">
+            <a class="m-btn m-btn-block m-btn-success waves-effect" href="?productID=<?php echo $product['product_id']; ?>&id=<?php echo $product['product_id']; ?>">Add to Cart</a>
         </div>
     </div>
 </div>

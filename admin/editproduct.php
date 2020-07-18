@@ -25,7 +25,7 @@ if(isset($_POST['postProduct'])){
     $qnty = $format->Stext($_POST['qnty']);
     $desc = $format->Stext($_POST['desc']);
 
-    $db->update("UPDATE product SET name ='$name' , price ='$price', qnty='$qnty', description='$desc' 
+    $db->update("UPDATE product SET name ='$name', price ='$price', qnty='$qnty', description='$desc' 
     WHERE product_id='$editID'");
 }
 
