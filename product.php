@@ -62,7 +62,7 @@ $product = $db->select("SELECT * FROM product WHERE product_id = '$ids' ")->fetc
 <!--</>-->
 
   
- <title>Math Contest</title>
+ <title><?php echo $product['name'] ?> | Math Contest</title>
 </head>
 
 <body class="m-parallax">
