@@ -16,16 +16,36 @@ if(isset($_POST['postProduct'])){
 
 
 //upload photo
-    $photoname = $_FILES['photo']['name'];
-    $tmp_name  = $_FILES['photo']['tmp_name'];
+    $photoname1 = $_FILES['photo1']['name'];
+    $photoname2 = $_FILES['photo2']['name'];
+    $photoname3 = $_FILES['photo3']['name'];
 
-    $location="../img/product/$photoname";
+    $tmp_name1  = $_FILES['photo1']['tmp_name'];
+    $tmp_name2  = $_FILES['photo2']['tmp_name'];
+    $tmp_name3  = $_FILES['photo3']['tmp_name'];
+
+    $location1 = "../img/product/$photoname1";
+    $location2 = "../img/product/$photoname2";
+    $location3 = "../img/product/$photoname3";
+
     $rnd = time()."-".rand(1000, 9999);
-    $rnds = $location.$rnd;
-    $new_name = $rnds."-".$photoname;
-    move_uploaded_file($tmp_name,$new_name);
 
-    $add = "img/product/$photoname".$rnd."-".$photoname;
+    $rnds1 = $location1.$rnd;
+    $rnds2 = $location2.$rnd;
+    $rnds3 = $location3.$rnd;
+
+    $new_name1 = $rnds1."-".$photoname1;
+    $new_name2 = $rnds2."-".$photoname2;
+    $new_name3 = $rnds3."-".$photoname3;
+
+    move_uploaded_file($tmp_name1,$new_name1);
+    move_uploaded_file($tmp_name2,$new_name2);
+    move_uploaded_file($tmp_name3,$new_name3);
+
+    $add1 = "img/product/$photoname1".$rnd."-".$photoname1;
+    $add2 = "img/product/$photoname2".$rnd."-".$photoname2;
+    $add3 = "img/product/$photoname3".$rnd."-".$photoname3;
+
 
 //upload file
      $filename = $_FILES['file']['name'];
@@ -40,8 +60,8 @@ if(isset($_POST['postProduct'])){
      $addFile = "assets/file/$filename".$rnd."-".$filename;
 
 
-    $db->insert("INSERT INTO product(product_id ,name, price, qnty, description, image, url) 
-        VALUES('$UId' ,'$name', '$price', '$qnty', '$desc', '$add', '$addFile')");
+    $db->insert("INSERT INTO product(product_id ,name, price, qnty, description, image, image2, image3, url) 
+        VALUES('$UId' ,'$name', '$price', '$qnty', '$desc', '$add1', '$add2', '$add3', '$addFile')");
 
 }
 
@@ -81,8 +101,14 @@ if(isset($_POST['postProduct'])){
                 </div>
 
                 <div>
-                   Upload Cover (*jpg, *png): <label class="m-btn waves-effect m-btn-info" for="upload-photo">Browse Cover...</label>
-                    <input class="m-hidden" type="file" name="photo" id="upload-photo">
+                   Upload Cover1 (*jpg, *png): <label class="m-btn waves-effect m-btn-info" for="upload-photo1">Browse Cover1</label>
+                    <input class="m-hidden" type="file" name="photo1" id="upload-photo1">
+                    <br>
+                    Upload Cover2 (*jpg, *png): <label class="m-btn waves-effect m-btn-info" for="upload-photo2">Browse Cover2</label>
+                    <input class="m-hidden" type="file" name="photo2" id="upload-photo2">
+                    <br>
+                    Upload Cover3 (*jpg, *png): <label class="m-btn waves-effect m-btn-info" for="upload-photo3">Browse Cover3</label>
+                    <input class="m-hidden" type="file" name="photo3" id="upload-photo3">
                 </div>
 
         

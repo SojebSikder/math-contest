@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2020 at 11:11 AM
+-- Generation Time: Jul 18, 2020 at 09:22 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -189,7 +189,9 @@ CREATE TABLE `instructor` (
 
 INSERT INTO `instructor` (`id`, `ins_name`, `ins_login`, `ins_pass`, `ins_registered`, `ins_status`, `ins_display_name`, `ins_email`, `ins_type`, `ipadd`, `ins_city`, `ins_state`, `ins_country`, `ins_bio`, `ins_image`, `ins_user_id`, `ins_role`, `ins_date`) VALUES
 (1, 'sojebsikder', 'sojebsikder@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-14 10:12:41', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'instructor', '::1', 'Gazipur', 'Dhaka', 'Bangladesh', 'I\'m Programmer', 'img/profile/Assassins_Creed_4-wallpaper-9669711.jpg1594462503-3794-Assassins_Creed_4-wallpaper-9669711.jpg', '15e33e46e4a171', 'admin', '2020-05-11'),
-(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-04 09:03:41', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'instructor', '::1', '', '', '', '', '', '15eff156824063', 'instructor', '0000-00-00');
+(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-04 09:03:41', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'instructor', '::1', '', '', '', '', '', '15eff156824063', 'instructor', '0000-00-00'),
+(12, 'sojebsikder', 'sojebsikder@gmail.com', '289dff07669d7a23de0ef88d2f7129e7', '2020-07-17 09:40:04', 'deactive', 'sojebsikder', 'sojebsikder@gmail.com', 'instructor', '::1', NULL, NULL, NULL, NULL, NULL, '15f1171f4ed1d2', NULL, NULL),
+(13, 'as', 'as@gmail.com', 'f970e2767d0cfe75876ea857f92e319b', '2020-07-17 09:41:52', 'deactive', 'as', 'as@gmail.com', 'instructor', '::1', NULL, NULL, NULL, NULL, NULL, '15f11726092bd3', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -326,15 +328,25 @@ CREATE TABLE `product` (
   `description` text NOT NULL,
   `image` varchar(200) DEFAULT NULL,
   `product_id` varchar(200) NOT NULL,
-  `url` varchar(200) DEFAULT NULL
+  `url` varchar(200) DEFAULT NULL,
+  `image2` varchar(200) DEFAULT NULL,
+  `image3` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `price`, `qnty`, `description`, `image`, `product_id`, `url`) VALUES
-(1, 'PHP Tutorial PDF Book', '90', 10, 'This is PHP Tutorial PDF Book', 'img/product/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594896948-5397-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', '15f0aaeaa7d578', '');
+INSERT INTO `product` (`id`, `name`, `price`, `qnty`, `description`, `image`, `product_id`, `url`, `image2`, `image3`) VALUES
+(1, 'PHP Tutorial PDF Book', '90', 10, 'This is PHP Tutorial PDF Book', 'img/product/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1594896948-5397-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', '15f0aaeaa7d578', '', NULL, NULL),
+(5, 'asd', '0', 20, 'hghg', 'img/product/1594979470-4198-', '15f11748e3b085', 'assets/file/1594979470-4198-', NULL, NULL),
+(6, 'dfgf', '0', 10, 'dgfg', 'img/product/1594979631-6222-', '15f11752f3e134', 'assets/file/1594979631-6222-', NULL, NULL),
+(7, 'dfsgfdsgdfs', '0', 10, 'jlkjlk', 'img/product/1594979645-3428-', '15f11753db7854', 'assets/file/1594979645-3428-', NULL, NULL),
+(8, '4545', '4545', 5454, '54545', 'img/product/1594979649-4883-', '15f117541a3a4a', 'assets/file/1594979649-4883-', NULL, NULL),
+(9, '4545', '545', 4545, '4545', 'img/product/1594979652-3008-', '15f1175449dfc7', 'assets/file/1594979652-3008-', NULL, NULL),
+(10, '4545', '545', 4545, '4545', 'img/product/1594979655-8358-', '15f1175475be58', 'assets/file/1594979655-8358-', NULL, NULL),
+(11, '5454', '454', 545, '4545', 'img/product/1594979659-3231-', '15f11754b1f68d', 'assets/file/1594979659-3231-', NULL, NULL),
+(12, '3', '63535', 53245, '32542', 'img/product/Fractal_Lion-wallpaper-10874951.jpg1595056200-6201-Fractal_Lion-wallpaper-10874951.jpg', '15f12a048541dc', 'assets/file/1595056200-6201-', 'img/product/Happy_New_Year-wallpaper-9459272.jpg1595056200-6201-Happy_New_Year-wallpaper-9459272.jpg', 'img/product/Goku_god-wallpaper-10719080.jpg1595056200-6201-Goku_god-wallpaper-10719080.jpg');
 
 -- --------------------------------------------------------
 
@@ -723,7 +735,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `leaderboard`
@@ -765,13 +777,13 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `roles`
