@@ -12,6 +12,7 @@ if(isset($_POST['postProduct'])){
     $qnty = $format->Stext($_POST['qnty']);
     $desc = $format->Stext($_POST['desc']);
     $keywords = $format->Stext($_POST['keywords']);
+    $product_cat = $format->Stext($_POST['prcat']);
 
     $UId = uniqid(true);
 
@@ -61,8 +62,8 @@ if(isset($_POST['postProduct'])){
      $addFile = "assets/file/$filename".$rnd."-".$filename;
 
 
-    $db->insert("INSERT INTO product(product_id ,name, price, qnty, description, image, image2, image3, url, meta_keywords) 
-        VALUES('$UId' ,'$name', '$price', '$qnty', '$desc', '$add1', '$add2', '$add3', '$addFile', '$keywords')");
+    $db->insert("INSERT INTO product(product_id ,name, price, qnty, description, image, image2, image3, url, meta_keywords, category) 
+        VALUES('$UId' ,'$name', '$price', '$qnty', '$desc', '$add1', '$add2', '$add3', '$addFile', '$keywords', '$product_cat')");
 
 }
 
@@ -95,6 +96,23 @@ if(isset($_POST['postProduct'])){
                     <input name="qnty" type="number" class="m-form-control text-dark" required>
                     <label>Quantity</label>
                 </div>
+
+
+                <label for="drop">Category</label> 
+                <select name="prcat" id="drop" autocomplete="off">
+                    <option value="">Select Category</option>
+                    <?php 
+                   $productCat = $db->select("SELECT * FROM product_category");
+
+                   if($productCat ){
+                       while ($getproductCat = $productCat->fetch_assoc()) {
+                    ?>
+                    <option value="<?php echo $getproductCat['cat_name'] ?>"><?php echo $getproductCat['cat_name'] ?></option>
+
+                <?php } }?>
+                </select>
+
+
 
                 <div class="m-input-group">
                     <textarea name="desc" class="m-form-control text-dark" required></textarea>

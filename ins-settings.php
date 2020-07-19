@@ -63,12 +63,12 @@ if(isset($_POST['delete'])){
         <h3>Change Password</h3>  
 
         <div class="m-input-group">
-            <input name="oldpsk" type="text" autocomplete="off" class="m-form-control"/>
+            <input name="oldpsk" type="text" autocomplete="off" class="m-form-control text-dark"/>
             <label>Old Password</label>
         </div>
 
         <div class="m-input-group">
-            <input name="newpsk" type="text" autocomplete="off" class="m-form-control" />
+            <input name="newpsk" type="text" autocomplete="off" class="m-form-control text-dark" />
             <label>New Password</label>
         </div>
                         

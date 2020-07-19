@@ -434,7 +434,6 @@ if(isset($_REQUEST['id'])){
                 <div class="mySlides ">
                     <div class="numbertext"></div>
                     <img class="m-img m-img-thumbnail" src="<?php echo $product['image2'];?>" style="width:100%;max-height: 500px;" alt="">
-                    <div class="text">Caption Text</div>
                 </div>
             <?php }?>
 
@@ -442,7 +441,6 @@ if(isset($_REQUEST['id'])){
                 <div class="mySlides ">
                     <div class="numbertext"></div>
                     <img class="m-img m-img-thumbnail" src="<?php echo $product['image3'];?>" style="width:100%;max-height: 500px;" alt="">
-                    <div class="text">Caption Text</div>
                 </div>
             <?php }?>
 
@@ -460,8 +458,10 @@ if(isset($_REQUEST['id'])){
             <!--Slideshow end -->
             <h4><?php echo $product['name']; ?></h4>
             <hr>
-                <a class="m-alert m-alert-success">Price: <?php echo $product['price']; ?>TK</a>
+                <a class="m-alert m-alert-success">Price: <?php echo $product['price']; ?> TK</a>
             <hr>
+            <p class="m-box"><?php echo $product['category']; ?></p>
+            <br>
             Product Description:<p class="m-box"><?php echo $product['description']; ?></p>
             <a class="m-btn m-btn-block m-btn-success waves-effect" href="?productID=<?php echo $product['product_id']; ?>&id=<?php echo $product['product_id']; ?>">Add to Cart</a>
         </div>

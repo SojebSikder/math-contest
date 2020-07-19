@@ -30,6 +30,16 @@ if(isset($_POST['postProduct'])){
     WHERE product_id='$editID'");
 }
 
+
+if(isset($_POST['saveCat'])){
+
+    $cat = $format->Stext($_POST['prcat']);
+
+    $db->update("UPDATE product SET category='$cat' WHERE product_id='$editID'");
+}
+
+
+
 if(isset($_POST['postCover'])){
     //upload photo
     $photoname = $_FILES['photo']['name'];
@@ -72,6 +82,33 @@ if(isset($_POST['postFile'])){
             <div class="block">         
              <form action="" method="POST" enctype="multipart/form-data">
 
+             
+             <div class="m-justify col-xs-6 col-sm-3">
+            <div class="m-card">
+                <div class="m-card-body">
+
+            <h4>Category</h4>
+            <label for="drop">Category</label> 
+                <select name="prcat" id="drop" autocomplete="off">
+                    <option value="">Select Category</option>
+                    <?php 
+                   $productCat = $db->select("SELECT * FROM product_category");
+
+                   if($productCat ){
+                       while ($getproductCat = $productCat->fetch_assoc()) {
+                    ?>
+                    <option value="<?php echo $getproductCat['cat_name'] ?>"><?php echo $getproductCat['cat_name'] ?></option>
+
+                <?php } }?>
+                </select>
+    
+            <input class="m-btn waves-effect" type="submit" name="saveCat" value="Save">
+
+            </div>
+           </div>
+        </div>
+
+
              <div class="m-justify-md">
             <div class="m-card">
             <div class="m-card-body">
@@ -91,8 +128,6 @@ if(isset($_POST['postFile'])){
                 <hr>
 
                 <input class="m-btn waves-effect m-btn-block" name="postFile" type="submit" value="Save File" required>
-
-
 
             </div>
             </div>
@@ -119,13 +154,14 @@ if(isset($_POST['postFile'])){
                 <div class="m-input-group">
                     <a>Quantity</a>
                     <input name="qnty" type="number" value="<?php echo $GetProduct['qnty'];?>" class="m-form-control text-dark" required>
-
                 </div>
 
                 <div class="m-input-group">
                     <a>Description</a>
                     <textarea name="desc" class="m-form-control text-dark" required><?php echo $GetProduct['description'];?></textarea>
                 </div>
+
+                <label><?php echo $GetProduct['category'];?></label>
 
                 <div class="m-input-group">
                     <a>Keywords</a>

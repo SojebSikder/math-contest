@@ -5,8 +5,6 @@ require "classes/Item.php";
 $db = new Database();
 $format = new Format();
 
-$productExe = $db->select("SELECT * FROM product ORDER BY id DESC");
-
 
 
 //Add to cart
@@ -45,6 +43,7 @@ if(isset($_GET['id'])){
     }
 //End add to cart
 
+
 ?>
 
 
@@ -52,7 +51,46 @@ if(isset($_GET['id'])){
 
             <h3 class="text-info">Buy Items here</h3>
 
+<form action="" method="post">
+            <div class="m-card">
+                <div class="m-card-body">
+                 
+                <label for="drop">Category</label> 
+                <select name="prcat" id="drop" autocomplete="off">
+                    <option value="All">All</option>
+                    <?php 
+                   $productCat = $db->select("SELECT * FROM product_category");
+
+                   if($productCat ){
+                       while ($getproductCat = $productCat->fetch_assoc()) {
+                    ?>
+                    <option value="<?php echo $getproductCat['cat_name'] ?>"><?php echo $getproductCat['cat_name'] ?></option>
+
+                <?php } }?>
+                </select>
+
+                <input class="m-btn waves-effect" type="submit" value="ok" name="prcatsubmit">
+
+                </div>
+            </div>
+</form>
+
             <?php
+            if(isset($_POST['prcatsubmit'])){
+
+                $cat = $format->Stext($_POST['prcat']);
+            
+                if($cat == "All"){
+                    $productExe = $db->select("SELECT * FROM product ORDER BY id DESC");
+                }else{
+                    $productExe = $db->select("SELECT * FROM product WHERE category='$cat' ORDER BY id DESC");
+                }
+            
+            }else{
+                $productExe = $db->select("SELECT * FROM product ORDER BY id DESC");
+            }
+
+
             if($productExe){
 
                 $count=0;
@@ -69,6 +107,7 @@ if(isset($_GET['id'])){
                         <h3><?php echo $product['name']; ?></h3>
                         <hr>
                         <p><a href="product.php?productID=<?php echo $product['product_id']; ?>"><img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" alt=""></a></p>
+                        <p class="m-box"><?php echo $product['category']; ?></p>
                         <p class="m-box"><?php echo Format::textShorten($product['description'],100); ?></p>
                        <a class="m-alert m-alert-success">Price: <?php echo $product['price']; ?>TK</a>
          
