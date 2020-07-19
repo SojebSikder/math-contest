@@ -43,35 +43,25 @@ if($login){
     <link rel="stylesheet" type="text/css" href="css/layout.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" media="screen" />
     <link href="css/table/demo_page.css" rel="stylesheet" type="text/css" />
-    <!-- BEGIN: load jquery -->
-    <script src="js/jquery-1.6.4.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/jquery-ui/jquery.ui.core.min.js"></script>
-    <script src="js/jquery-ui/jquery.ui.widget.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui/jquery.ui.accordion.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui/jquery.effects.core.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui/jquery.effects.slide.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui/jquery.ui.mouse.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui/jquery.ui.sortable.min.js" type="text/javascript"></script>
-    <script src="js/table/jquery.dataTables.min.js" type="text/javascript"></script>
-    <!-- END: load jquery -->
-    <script type="text/javascript" src="js/table/table.js"></script>
-    <script src="js/setup.js" type="text/javascript"></script>
+
+
+  <!--material file link -->
+    <link rel="stylesheet" href="../<?php echo BASE;?>js/jquery.min.js">
+  <link rel="stylesheet" href="../<?php echo BASE;?>js/bootstrap.min.js">
+  <link rel="stylesheet" href="../<?php echo BASE;?>css/material/material.js">
+
+  <link rel="stylesheet" href="../<?php echo BASE;?>css/material/material.css">
+    <!--bootstrap file link -->
+  <link rel="stylesheet" href="../<?php echo BASE;?>css/bootstrap.min.css">
+  <link rel="stylesheet" href="../<?php echo BASE;?>css/footer.css">
+
+
 	 <script type="text/javascript">
         $(document).ready(function () {
             setupLeftMenu();
 		    setSidebarHeight();
         });
     </script>
-
-
-    <!--bootstrap file link -->
-  <link rel="stylesheet" href="../<?php echo BASE;?>css/bootstrap.min.css">
-  <link rel="stylesheet" href="../<?php echo BASE;?>css/footer.css">
-
-  <link rel="stylesheet" href="../<?php echo BASE;?>css/login.css">
-
-  <!--material file link -->
-  <link rel="stylesheet" href="../<?php echo BASE;?>css/material/material.css">
     
 
 </head>

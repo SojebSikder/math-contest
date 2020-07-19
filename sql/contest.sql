@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 12:52 PM
+-- Generation Time: Jul 19, 2020 at 09:29 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -130,14 +130,14 @@ CREATE TABLE `blog_reply` (
 CREATE TABLE `category` (
   `id` int(11) NOT NULL,
   `cat_name` varchar(200) NOT NULL,
-  `cate_status` enum('Publish','Unpublish') NOT NULL
+  `cat_status` enum('Publish','Unpublish') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `cat_name`, `cate_status`) VALUES
+INSERT INTO `category` (`id`, `cat_name`, `cat_status`) VALUES
 (1, 'Daily Math Challenge', 'Publish'),
 (2, 'Weekly Math Challenge', 'Publish');
 
@@ -331,23 +331,48 @@ CREATE TABLE `product` (
   `url` varchar(200) DEFAULT NULL,
   `image2` varchar(200) DEFAULT NULL,
   `image3` varchar(200) DEFAULT NULL,
-  `meta_keywords` varchar(200) DEFAULT NULL
+  `meta_keywords` varchar(200) DEFAULT NULL,
+  `category` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `price`, `qnty`, `description`, `image`, `product_id`, `url`, `image2`, `image3`, `meta_keywords`) VALUES
-(1, 'PHP Tutorial PDF Book', '90', 10, 'This is PHP Tutorial PDF Book', 'img/product/Assassins_Creed_4-wallpaper-9669711.jpg1595068271-7622-Assassins_Creed_4-wallpaper-9669711.jpg', '15f0aaeaa7d578', '', NULL, NULL, NULL),
-(5, 'asd', '0', 20, 'hghg', 'img/product/1594979470-4198-', '15f11748e3b085', 'assets/file/1594979470-4198-', NULL, NULL, NULL),
-(6, 'dfgf', '0', 10, 'dgfg', 'img/product/1594979631-6222-', '15f11752f3e134', 'assets/file/1594979631-6222-', NULL, NULL, NULL),
-(7, 'dfsgfdsgdfs', '0', 10, 'jlkjlk', 'img/product/1594979645-3428-', '15f11753db7854', 'assets/file/1594979645-3428-', NULL, NULL, NULL),
-(8, '4545', '4545', 5454, '54545', 'img/product/1594979649-4883-', '15f117541a3a4a', 'assets/file/1594979649-4883-', NULL, NULL, NULL),
-(9, '4545', '545', 4545, '4545', 'img/product/1594979652-3008-', '15f1175449dfc7', 'assets/file/1594979652-3008-', NULL, NULL, NULL),
-(10, '4545', '545', 4545, '4545', 'img/product/1594979655-8358-', '15f1175475be58', 'assets/file/1594979655-8358-', NULL, NULL, NULL),
-(11, '5454', '454', 545, '4545', 'img/product/1594979659-3231-', '15f11754b1f68d', 'assets/file/1594979659-3231-', NULL, NULL, NULL),
-(12, '3', '63535', 53245, '32542', 'img/product/Fractal_Lion-wallpaper-10874951.jpg1595056200-6201-Fractal_Lion-wallpaper-10874951.jpg', '15f12a048541dc', 'assets/file/1595056200-6201-', 'img/product/Happy_New_Year-wallpaper-9459272.jpg1595056200-6201-Happy_New_Year-wallpaper-9459272.jpg', 'img/product/Goku_god-wallpaper-10719080.jpg1595056200-6201-Goku_god-wallpaper-10719080.jpg', NULL);
+INSERT INTO `product` (`id`, `name`, `price`, `qnty`, `description`, `image`, `product_id`, `url`, `image2`, `image3`, `meta_keywords`, `category`) VALUES
+(1, 'PHP Tutorial PDF Book', '90', 10, 'This is PHP Tutorial PDF Book', 'img/product/Assassins_Creed_4-wallpaper-9669711.jpg1595068271-7622-Assassins_Creed_4-wallpaper-9669711.jpg', '15f0aaeaa7d578', '', NULL, NULL, 'php books,', 'Programming'),
+(5, 'asd', '0', 20, 'hghg', 'img/product/1594979470-4198-', '15f11748e3b085', 'assets/file/1594979470-4198-', NULL, NULL, NULL, 'Science'),
+(6, 'dfgf', '0', 10, 'dgfg', 'img/product/1594979631-6222-', '15f11752f3e134', 'assets/file/1594979631-6222-', NULL, NULL, NULL, 'Novel'),
+(7, 'dfsgfdsgdfs', '0', 10, 'jlkjlk', 'img/product/1594979645-3428-', '15f11753db7854', 'assets/file/1594979645-3428-', NULL, NULL, NULL, 'Novel'),
+(8, '4545', '4545', 5454, '54545', 'img/product/1594979649-4883-', '15f117541a3a4a', 'assets/file/1594979649-4883-', NULL, NULL, NULL, NULL),
+(9, '4545', '545', 4545, '4545', 'img/product/1594979652-3008-', '15f1175449dfc7', 'assets/file/1594979652-3008-', NULL, NULL, NULL, NULL),
+(10, '4545', '545', 4545, '4545', 'img/product/1594979655-8358-', '15f1175475be58', 'assets/file/1594979655-8358-', NULL, NULL, NULL, NULL),
+(11, '5454', '454', 545, '4545', 'img/product/1594979659-3231-', '15f11754b1f68d', 'assets/file/1594979659-3231-', NULL, NULL, NULL, NULL),
+(12, '3', '63535', 53245, '32542', 'img/product/Fractal_Lion-wallpaper-10874951.jpg1595056200-6201-Fractal_Lion-wallpaper-10874951.jpg', '15f12a048541dc', 'assets/file/1595056200-6201-', 'img/product/Happy_New_Year-wallpaper-9459272.jpg1595056200-6201-Happy_New_Year-wallpaper-9459272.jpg', 'img/product/Goku_god-wallpaper-10719080.jpg1595056200-6201-Goku_god-wallpaper-10719080.jpg', NULL, NULL),
+(13, 'wewe', '90', 1241, 'mpbec', 'img/product/1595138260-1346-', '15f13e0d4dc5ee', 'assets/file/1595138260-1346-', 'img/product/1595138260-1346-', 'img/product/1595138260-1346-', '', 'Islamic');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_category`
+--
+
+CREATE TABLE `product_category` (
+  `id` int(11) NOT NULL,
+  `cat_name` varchar(200) NOT NULL,
+  `cat_status` enum('Publish','Unpublish') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product_category`
+--
+
+INSERT INTO `product_category` (`id`, `cat_name`, `cat_status`) VALUES
+(1, 'Novel', 'Publish'),
+(2, 'Programming', 'Publish'),
+(3, 'Science', 'Publish'),
+(4, 'Islamic', 'Publish'),
+(5, 'Science Fiction', 'Publish');
 
 -- --------------------------------------------------------
 
@@ -625,6 +650,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `product_category`
+--
+ALTER TABLE `product_category`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
@@ -778,7 +809,13 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `product_category`
+--
+ALTER TABLE `product_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `register`
