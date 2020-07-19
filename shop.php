@@ -104,7 +104,7 @@ if(isset($_GET['id'])){
             <div class="m-justify-md">
                 <div class="m-card">
                     <div class="m-card-body">
-                        <h3><?php echo $product['name']; ?></h3>
+                        <p> <strong><?php echo $product['name']; ?></strong></p>
                         <hr>
                         <p><a href="product.php?productID=<?php echo $product['product_id']; ?>"><img class="m-img m-img-thumbnail" src="<?php echo $product['image'];?>" alt=""></a></p>
                         <p class="m-box"><?php echo $product['category']; ?></p>
