@@ -52,6 +52,18 @@ if(isset($_GET['error'])){
 
   
  <title>Math Contest</title>
+
+ <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-88930775-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-88930775-2');
+</script>
+
+
 </head>
 
 <body class="m-parallax">
