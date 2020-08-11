@@ -50,8 +50,9 @@ if(isset($_GET['error'])){
   
 <!--</>-->
 
+
   
- <title>Math Contest</title>
+ <title><?php echo web("web_title");?></title>
 
  <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88930775-2"></script>
@@ -76,7 +77,7 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
 
 
 <div class="jumbotron text-center bg-white text-black" style="margin-bottom:0; background: url(<?php echo BASE;?>images/cover/wallpaper.png);">
-  <h1 class="text-light">Math Contest</h1>
+  <h1 class="text-light"><?php echo web("web_title");?></h1>
   <p class="text-light"><?php echo web('web_slogan'); ?></p>
 </div>
 
@@ -85,9 +86,20 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
 
 ?>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-info sticky-top">
+
+
+<nav class="navbar ftco_navbar navbar-expand-lg bg-dark navbar-info sticky-top">
+
+<div class="container">
+
   <!-- Brand -->
-  <a class="navbar-brand" href="index.php">Math Contest</a>
+  <a class="navbar-brand" href="index.php"><?php echo web("web_title");?></a>
+
+        <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+<div class="collapse navbar-collapse" id="ftco-nav">
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -201,6 +213,30 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
       <a class="nav-link" href="leaderboard.php">Leaderboard</a>
     </li>
 
+  <?php if(isset($_SESSION['ins_login'])): ?>
+
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Blog
+      </a>
+      <div class="dropdown-menu">
+
+        <a class="dropdown-item" href="blog/">View Blog</a>
+        <a class="dropdown-item" href="post_blog.php">Post a Blog</a>
+
+      </div>
+    </li>
+
+
+  <?php else: ?>
+
+    <li class="nav-item">
+      <a class="nav-link" href="blog/">Blog</a>
+    </li>
+
+  <?php endif ?>
+
     <li class="nav-item">
       <a class="nav-link" href="shop.php">Shop</a>
     </li>
@@ -313,8 +349,9 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
 
   </ul>
 
- 
 
+    </div>
+  </div>
 </nav>
 <br>
 

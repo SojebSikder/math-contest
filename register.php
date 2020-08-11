@@ -52,8 +52,8 @@ if(isset($_POST['submit']))
 }
     
     if(($isHaveUsername == true) &&  ($isHaveEmail == true)){
-        $query = "INSERT INTO register(user_id,user_login,user_name,user_pass,user_email,user_status,display_name,ipadd,type)
-        VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
+        $query = "INSERT INTO register(user_id, user_login, user_name, user_pass, user_email, user_status, display_name, ipadd, type, user_image)
+        VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype', 'assets/images/default/avatar.png')";
 
         $read =$db->insert($query);
         if($read){

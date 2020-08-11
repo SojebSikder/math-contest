@@ -56,8 +56,8 @@ if(isset($_POST['submit']))
       }
 
       if(($isHaveUsername == true) &&  ($isHaveEmail == true)){
-          $query = "INSERT INTO instructor(ins_user_id,ins_login,ins_name,ins_pass,ins_email,ins_status,ins_display_name,ipadd,ins_type)
-          VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype')";
+          $query = "INSERT INTO instructor(ins_user_id, ins_login, ins_name, ins_pass, ins_email, ins_status, ins_display_name, ipadd, ins_type, ins_image)
+          VALUES('$userId','$email','$name','$passmd5','$email','$status','$name','$userip','$usertype', 'assets/images/default/avatar.png')";
 
           $read =$db->insert($query);
           if($read)

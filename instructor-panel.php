@@ -137,9 +137,11 @@ if(isset($_POST['submitP']))
           </select>
       </div>
 
+      <p><img id="profile_img" class="left-block img-thumbnail"></p>
+
       <div class="form-group">
-        <label class="btn btn-primary" for="img">Browse..</label>
-        <input name="img" class="m-hidden" type="file" id="img">
+        <label class="btn btn-primary" for="profile_input">Browse..</label>
+        <input name="img" class="m-hidden" type="file" id="profile_input">
       </div>
 
       <div class="m-input-group">
@@ -313,6 +315,26 @@ if(isset($_POST['submitP']))
 
 </div>
 </div>
+
+<script>
+//handling image view
+$(document).on('change', '#profile_input', function(){
+  var file = $('#profile_input')[0].files[0];
+  if(file){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      //set value of the input for profile picture
+      $('#profile_input').attr('value', file.name);
+      //display the image
+      $('#profile_img').attr('src', e.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+
+//end handling image view
+
+</script>
         
 <?php include "inc/footer.php";?>
 

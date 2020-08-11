@@ -111,7 +111,7 @@ if(isset($_POST['savephoto'])){
 <div class="row">
 
  <div class="col-xs-12 col-md-2">
-    <p><img class="left-block img-thumbnail" src="<?php echo $GetDataPr['user_image']?>" alt=""></p>
+    <p><img id="profile_img" class="left-block img-thumbnail" src="<?php echo $GetDataPr['user_image']?>" alt=""></p>
 
     <?php 
 
@@ -119,8 +119,8 @@ if(isset($_POST['savephoto'])){
 
         }else if($userlogin){
     ?>
-    <label class="btn btn-primary" for="upload-photo">Browse...</label>
-    <input type="file" class="m-hidden" name="photo" id="upload-photo"/>
+    <label class="btn btn-primary" for="profile_input">Browse...</label>
+    <input type="file" class="m-hidden" name="photo" id="profile_input"/>
 
     <label class="btn btn-info" for="savebtn">Update Photo</label>
     <input class="btn btn-info m-hidden" value="Save" type="submit" name="savephoto" id="savebtn"/>
@@ -270,5 +270,22 @@ if(isset($_POST['savephoto'])){
 </div>
 
 
+<script>
+//handling image view
+$(document).on('change', '#profile_input', function(){
+  var file = $('#profile_input')[0].files[0];
+  if(file){
+    var reader = new FileReader();
+    reader.onload = function(e){
+      //set value of the input for profile picture
+      $('#profile_input').attr('value', file.name);
+      //display the image
+      $('#profile_img').attr('src', e.target.result);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+//end handling image view
+</script>
 
 <?php include "inc/footer.php"; ?>

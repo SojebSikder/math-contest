@@ -1,7 +1,11 @@
+# Turn Rewrite Engine on
 RewriteEngine on
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
+# NC makes the rule of non case sensitive
+# L makes this the last rule that this specific condition will match
 
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+# Rewrite for blog-single.php?name=****
+# RewriteRule ^blog-single/([0-9a-zA-Z]+) blog-single.php?name=$1 [NC,L]
+
+RewriteRule ^article/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ blog-single.php?id=$1&name=$2 [NC,L]

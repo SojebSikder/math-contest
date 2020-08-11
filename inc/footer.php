@@ -17,7 +17,7 @@ if($aboutus){
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 footer-info">
-          <h3>Math Contest</h3>
+          <h3><?php echo web("web_title");?></h3>
           <hr>
 
         </div>

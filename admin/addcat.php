@@ -22,6 +22,14 @@ if(isset($_POST['saveprCat'])){
     VALUES('$cat', '$status')");
 }
 
+if(isset($_POST['saveblogCat'])){
+    $cat = $format->Stext($_POST['blogcat']);
+    $status = "Publish";
+
+    $db->insert("INSERT INTO blog_category(cat_name, cat_status) 
+    VALUES('$cat', '$status')");
+}
+
 
 ?>
 
@@ -54,10 +62,27 @@ if(isset($_POST['saveprCat'])){
                     </div>
                  </div>
 
-                </form>
                     
                 </div>
             </div>
+
+ <br>
+                <div class="m-card">
+                <div class="m-card-body">
+                <h3>Blog Category</h3>
+                <hr>
+                <div class="m-input-group">
+                    <input name="blogcat" type="text" placeholder="Enter Category Name..." class="m-form-control text-dark">
+                </div>
+                <input type="submit" class="m-btn waves-effect" name="saveblogCat" Value="Save">
+                </div>
+                </div>
+
+            </form>
+                
+            </div>
+        </div>
+
 
 
         <div class="clear">

@@ -10,6 +10,12 @@
             </ul>
         </li>
 
+        <li><a class="menuitem">Permission</a>
+            <ul class="submenu">
+                <li><a href="instructor_permission.php">Instructor</a></li>
+            </ul>
+        </li>
+
     <li><a class="menuitem">Notification</a>
             <ul class="submenu">
                 <li><a href="sendNotification.php">Send Notification</a></li>   
@@ -48,6 +54,13 @@
                 <li><a href="productorders.php">Orders</a> </li>
             </ul>
         </li>
+
+        <li><a class="menuitem">Request</a>
+            <ul class="submenu">
+                <li><a href="blog-request.php">Blog Request</a> </li>
+            </ul>
+        </li>
+
     </ul>
 </div>
 </div>

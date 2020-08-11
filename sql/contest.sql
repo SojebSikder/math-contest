@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2020 at 09:29 AM
+-- Generation Time: Aug 11, 2020 at 12:22 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -71,17 +71,50 @@ CREATE TABLE `answere` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blog_category`
+--
+
+CREATE TABLE `blog_category` (
+  `id` int(11) NOT NULL,
+  `cat_name` varchar(200) NOT NULL,
+  `cat_status` enum('Publish','Unpublish') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog_category`
+--
+
+INSERT INTO `blog_category` (`id`, `cat_name`, `cat_status`) VALUES
+(1, 'Math', 'Publish'),
+(2, 'Science', 'Publish'),
+(3, 'Programming', 'Publish'),
+(4, 'Tech', 'Publish');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blog_comments`
 --
 
 CREATE TABLE `blog_comments` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `post_id` int(11) NOT NULL,
+  `user_id` varchar(200) NOT NULL,
+  `post_id` varchar(200) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `body` text NOT NULL
+  `body` text NOT NULL,
+  `comment_id` varchar(200) NOT NULL,
+  `user_type` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog_comments`
+--
+
+INSERT INTO `blog_comments` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`, `body`, `comment_id`, `user_type`) VALUES
+(8, '15f0c17af2e6c9', '15f2fda81053ec', '2020-08-10 05:55:12', NULL, 'hello my comments', '15f30e140125ee', 'user'),
+(10, '15e33e46e4a171', '15f2fda81053ec', '2020-08-11 08:45:13', NULL, 'hello im instructor', '15f325a995b9d6', 'instructor'),
+(11, '15e33e46e4a171', '15f2fda81053ec', '2020-08-11 08:57:53', NULL, 'hello', '15f325d91212f3', 'instructor');
 
 -- --------------------------------------------------------
 
@@ -95,16 +128,25 @@ CREATE TABLE `blog_post` (
   `blog_description` varchar(200) NOT NULL,
   `blog_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_email` varchar(200) NOT NULL,
-  `image` varchar(200) DEFAULT NULL
+  `image` varchar(200) DEFAULT NULL,
+  `blog_name` varchar(200) DEFAULT NULL,
+  `blog_category` varchar(200) DEFAULT NULL,
+  `blog_id` varchar(200) DEFAULT NULL,
+  `blog_author_id` varchar(200) DEFAULT NULL,
+  `blog_tag` text DEFAULT NULL,
+  `blog_author` varchar(200) NOT NULL,
+  `blog_status` varchar(200) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `blog_post`
 --
 
-INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `user_email`, `image`) VALUES
-(2, 'How to write a good article', 'Today we will learn how to write own article', '2020-07-11 08:07:23', 'sojebsikder@gmail.com', NULL),
-(3, 'Welcome', 'HEllo guys im, sojeb sikder. Admin', '2020-07-11 08:17:04', 'sojebsikder@gmail.com', NULL);
+INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `user_email`, `image`, `blog_name`, `blog_category`, `blog_id`, `blog_author_id`, `blog_tag`, `blog_author`, `blog_status`, `created_at`) VALUES
+(2, 'How to write a good article', 'Today we will learn how to write own article', '2020-08-11 10:04:24', 'sojebsikder@gmail.com', NULL, 'good-article', 'Science', '321212121', '15e33e46e4a171', NULL, 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
+(10, 'Learn calculas', '<h1>Welcome to Tutorial</h1><p><span style=\"background-color: rgb(255, 0, 0);\">Tutorial</span> begin</p>', '2020-08-11 10:04:29', 'sojebsikder@gmail.com', NULL, 'Learn-calculas', 'Math', '15f2fd76c29729', '15e33e46e4a171', 'calculas, math', 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
+(12, 'post with image', '<h1>Post with image</h1>', '2020-08-11 10:04:35', 'sojebsikder@gmail.com', 'assets/images/blog/adidas_Water_Drops-wallpaper-10653846.jpg1596971649-6862-adidas_Water_Drops-wallpaper-10653846.jpg', 'post-with-image', 'Math', '15f2fda81053ec', '15e33e46e4a171', 'image, with, post', 'sojebsikder', 'Publish', '2020-08-11 10:10:15');
 
 -- --------------------------------------------------------
 
@@ -114,12 +156,22 @@ INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `u
 
 CREATE TABLE `blog_reply` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `comment_id` int(11) NOT NULL,
+  `user_id` varchar(200) NOT NULL,
+  `comment_id` varchar(200) NOT NULL,
   `body` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `user_type` varchar(200) NOT NULL,
+  `reply_id` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog_reply`
+--
+
+INSERT INTO `blog_reply` (`id`, `user_id`, `comment_id`, `body`, `created_at`, `updated_at`, `user_type`, `reply_id`) VALUES
+(16, '15f0c17af2e6c9', '15f30d64a2f4f1', 'hello', '2020-08-10 05:50:21', NULL, 'user', '15f30e01d2b927'),
+(18, '15e33e46e4a171', '15f30e140125ee', 'my reply', '2020-08-11 08:47:31', NULL, 'instructor', '15f325b237020f');
 
 -- --------------------------------------------------------
 
@@ -189,9 +241,7 @@ CREATE TABLE `instructor` (
 
 INSERT INTO `instructor` (`id`, `ins_name`, `ins_login`, `ins_pass`, `ins_registered`, `ins_status`, `ins_display_name`, `ins_email`, `ins_type`, `ipadd`, `ins_city`, `ins_state`, `ins_country`, `ins_bio`, `ins_image`, `ins_user_id`, `ins_role`, `ins_date`) VALUES
 (1, 'sojebsikder', 'sojebsikder@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-14 10:12:41', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'instructor', '::1', 'Gazipur', 'Dhaka', 'Bangladesh', 'I\'m Programmer', 'img/profile/Assassins_Creed_4-wallpaper-9669711.jpg1594462503-3794-Assassins_Creed_4-wallpaper-9669711.jpg', '15e33e46e4a171', 'admin', '2020-05-11'),
-(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-04 09:03:41', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'instructor', '::1', '', '', '', '', '', '15eff156824063', 'instructor', '0000-00-00'),
-(12, 'sojebsikder', 'sojebsikder@gmail.com', '289dff07669d7a23de0ef88d2f7129e7', '2020-07-17 09:40:04', 'deactive', 'sojebsikder', 'sojebsikder@gmail.com', 'instructor', '::1', NULL, NULL, NULL, NULL, NULL, '15f1171f4ed1d2', NULL, NULL),
-(13, 'as', 'as@gmail.com', 'f970e2767d0cfe75876ea857f92e319b', '2020-07-17 09:41:52', 'deactive', 'as', 'as@gmail.com', 'instructor', '::1', NULL, NULL, NULL, NULL, NULL, '15f11726092bd3', NULL, NULL);
+(2, 'sikdersojeb', 'sikdersojeb@gmail.com', '202cb962ac59075b964b07152d234b70', '2020-07-04 09:03:41', 'active', 'sikdersojeb', 'sikdersojeb@gmail.com', 'instructor', '::1', '', '', '', '', '', '15eff156824063', 'instructor', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -405,7 +455,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `user_name`, `user_login`, `user_pass`, `user_registered`, `user_status`, `display_name`, `user_email`, `type`, `ipadd`, `user_date`, `user_city`, `user_state`, `user_country`, `user_bio`, `user_image`, `user_id`) VALUES
-(6, 'sojebsikder', 'sojebsikder@gmail.com', 'c0035b21cc82f4cc08b169ba252458d3', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', '', '15f0c17af2e6c9');
+(6, 'sojebsikder', 'sojebsikder@gmail.com', 'c0035b21cc82f4cc08b169ba252458d3', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', 'img/profile/Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg1596975834-7184-Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg', '15f0c17af2e6c9');
 
 -- --------------------------------------------------------
 
@@ -539,7 +589,7 @@ CREATE TABLE `web` (
 --
 
 INSERT INTO `web` (`id`, `web_title`, `web_slogan`, `web_modified`, `about_us`, `contact_us`, `email`, `address`, `description`, `keywords`) VALUES
-(1, 'Math Contest', 'Prove yourself!', '0000-00-00 00:00:00', 'We are from Bhawal Badre Alom Govt. College,Gazipur,Bangladesh We organize Math Contest for Intermediate Student to developing math skill.', ' 27 Road Gazipura              Gazipur,Bangladesh             Email:sojebsoft@gmail.com', 'sojebsoft@gmail.com', 'gazipura', 'The Math Contest.', 'sojebsoft, sojebsoft download, math, contest');
+(1, 'Math Corner', 'Prove yourself!', '0000-00-00 00:00:00', 'We are from Bhawal Badre Alom Govt. College,Gazipur,Bangladesh We organize Math Contest for Intermediate Student to developing math skill.', ' 27 Road Gazipura              Gazipur,Bangladesh             Email:sojebsoft@gmail.com', 'sojebsoft@gmail.com', 'gazipura', 'The Math Contest.', 'sojebsoft, sojebsoft download, math, contest');
 
 -- --------------------------------------------------------
 
@@ -569,6 +619,12 @@ ALTER TABLE `admin_register`
 -- Indexes for table `answere`
 --
 ALTER TABLE `answere`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog_category`
+--
+ALTER TABLE `blog_category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -734,22 +790,28 @@ ALTER TABLE `answere`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `blog_category`
+--
+ALTER TABLE `blog_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `blog_post`
 --
 ALTER TABLE `blog_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `blog_reply`
 --
 ALTER TABLE `blog_reply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -767,7 +829,7 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT for table `instructor`
 --
 ALTER TABLE `instructor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `leaderboard`
@@ -821,7 +883,7 @@ ALTER TABLE `product_category`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `roles`
