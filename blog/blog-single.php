@@ -172,7 +172,7 @@ if(isset($id) && isset($name)){
 
               <?php if(isset($user_name) || isset($ins_name)): ?>
 
-              <form class="clearfix" action="comment.php" method="post" id="comment_form">
+              <form class="clearfix" action="<?php echo URL; ?>comment.php" method="post" id="comment_form">
                 <input type="hidden" value="<?php echo $getid; ?>" name="post_id">
                 <textarea name="comment_text" required id="comment_text" class="form-control" cols="30" rows="3"></textarea>
                 <button class="btn btn-primary btn-sm pull-right" type="submit" name="submitcomment" id="submit_comment">Submit comment</button>
@@ -221,14 +221,14 @@ if(isset($id) && isset($name)){
                     <?php if($getcomments['user_type'] == "user"): ?>
 
                       <?php if($getcomments['user_id'] == $user_id): ?>
-                        <p><a href="comment.php?post_id=<?php echo $getid; ?>&del-comment=<?php echo $getcomments['comment_id']; ?>">Delete</a></p>
+                        <p><a href="<?php echo URL; ?>comment.php?post_id=<?php echo $getid; ?>&del-comment=<?php echo $getcomments['comment_id']; ?>">Delete</a></p>
                       <?php else: ?>
                       <?php endif ?>
 
                     <?php else: ?>
 
                       <?php if($getcomments['user_id'] == $ins_id): ?>
-                      <p><a href="comment.php?post_id=<?php echo $getid; ?>&del-comment=<?php echo $getcomments['comment_id']; ?>">Delete</a></p>
+                      <p><a href="<?php echo URL; ?>comment.php?post_id=<?php echo $getid; ?>&del-comment=<?php echo $getcomments['comment_id']; ?>">Delete</a></p>
                       <?php else: ?>
                       <?php endif ?>
 
@@ -281,14 +281,14 @@ if(isset($id) && isset($name)){
                         <?php if($reply['user_type'] == "user"): ?>
 
                           <?php if($reply['user_id'] == $user_id): ?>
-                            <p><a href="comment.php?post_id=<?php echo $getid; ?>&del-rep-comment=<?php echo $reply['reply_id']; ?>">Delete</a></p>
+                            <p><a href="<?php echo URL; ?>comment.php?post_id=<?php echo $getid; ?>&del-rep-comment=<?php echo $reply['reply_id']; ?>">Delete</a></p>
                           <?php else: ?>
                           <?php endif ?>
 
                         <?php else: ?>
 
                           <?php if($reply['user_id'] == $ins_id): ?>
-                          <p><a href="comment.php?post_id=<?php echo $getid; ?>&del-rep-comment=<?php echo $reply['reply_id']; ?>">Delete</a></p>
+                          <p><a href="<?php echo URL; ?>comment.php?post_id=<?php echo $getid; ?>&del-rep-comment=<?php echo $reply['reply_id']; ?>">Delete</a></p>
                           <?php else: ?>
                           <?php endif ?>
 

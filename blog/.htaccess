@@ -8,4 +8,6 @@ RewriteEngine on
 # Rewrite for blog-single.php?name=****
 # RewriteRule ^blog-single/([0-9a-zA-Z]+) blog-single.php?name=$1 [NC,L]
 
-RewriteRule ^article/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ blog-single.php?id=$1&name=$2 [NC,L]
+# RewriteRule ^article/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ blog-single.php?id=$1&name=$2 [NC,L]
+
+RewriteRule ^article/(.*)/(.*)/?$ blog-single.php?id=$1&name=$2 [NC,L]

@@ -33,9 +33,9 @@ if(!empty($_POST['comment_text'])){
         $addcomment = addComments($user_id, $post_id, $comment_text, $commentId, $user_type);
 
         if($addcomment){
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Comment added :)");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }else{
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Comment not added :(");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }
     }
 }else{
@@ -66,9 +66,9 @@ if(!empty($_POST['reply_text'])){
 
         $addcomment = addReply($user_id, $reply_text, $commentId, $user_type);
         if($addcomment){
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Comment reply added :)");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }else{
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Comment reply not added :(");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }
     }
 }else{
@@ -99,12 +99,12 @@ if(isset($_REQUEST['del-rep-comment'])){
 
         $delcomment = deleteReply($reply_id);
         if($delcomment){
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"reply deleted :)");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }else{
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"reply not delete :(");
+            Format::goto("articlep/$post_id/".getPostNameById($post_id));
         }
     }else{
-        Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Your not eligible to delete :(");
+        Format::goto("article/$post_id/".getPostNameById($post_id));
     }
 
     
@@ -134,12 +134,12 @@ if(isset($_REQUEST['del-comment'])){
 
         $delcomment = deleteComment($comment_id);
         if($delcomment){
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Comment deleted :)");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }else{
-            Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Comment not delete :(");
+            Format::goto("article/$post_id/".getPostNameById($post_id));
         }
     }else{
-        Format::jumpTo("blog-single.php?id=$post_id&name=".getPostNameById($post_id),"Your not eligible to delete :(");
+        Format::goto("article/$post_id/".getPostNameById($post_id));
     }
 
     
