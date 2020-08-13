@@ -225,6 +225,8 @@ if(!(basename($_SERVER['PHP_SELF']) == "instructor-panel.php" || basename($_SERV
         <a class="dropdown-item" href="blog/">View Blog</a>
         <a class="dropdown-item" href="post_blog.php">Post a Blog</a>
         <a class="dropdown-item" href="blog_list.php">Blog List</a>
+        <a class="dropdown-item" href="file_upload.php" target="_blank">File Uploader</a>
+        <a class="dropdown-item" href="file_list.php" target="_blank">Your File List</a>
 
       </div>
     </li>
