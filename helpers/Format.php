@@ -58,6 +58,12 @@ class Format{
         echo $doc;
     }
 
+    public static function goto($url){
+
+        $doc = "<script>function red(){ window.location='$url' }; setTimeout('red()', 0);</script>";
+        echo $doc;
+    }
+
     public function Spsk($string){
         $text = md5($this->Stext($string));
         return $text;

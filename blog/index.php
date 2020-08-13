@@ -45,7 +45,7 @@ require_once("src/classes/Web.php");
 					<?php
 						$linkbyId ="blog-single.php?id={$row['id']}";
 						//$linkbyName ="blog-single.php?id={$row['blog_id']}&name={$row['blog_name']}";
-						$linkbyName ="article/{$row['blog_id']}/{$row['blog_name']}";
+						$linkbyName = "article/{$row['blog_id']}/".urlencode($row['blog_name']);
 					?>
 
    					<div class="case">

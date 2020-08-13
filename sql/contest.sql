@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2020 at 12:22 PM
+-- Generation Time: Aug 12, 2020 at 08:28 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -113,8 +113,7 @@ CREATE TABLE `blog_comments` (
 
 INSERT INTO `blog_comments` (`id`, `user_id`, `post_id`, `created_at`, `updated_at`, `body`, `comment_id`, `user_type`) VALUES
 (8, '15f0c17af2e6c9', '15f2fda81053ec', '2020-08-10 05:55:12', NULL, 'hello my comments', '15f30e140125ee', 'user'),
-(10, '15e33e46e4a171', '15f2fda81053ec', '2020-08-11 08:45:13', NULL, 'hello im instructor', '15f325a995b9d6', 'instructor'),
-(11, '15e33e46e4a171', '15f2fda81053ec', '2020-08-11 08:57:53', NULL, 'hello', '15f325d91212f3', 'instructor');
+(10, '15e33e46e4a171', '15f2fda81053ec', '2020-08-11 08:45:13', NULL, 'hello im instructor', '15f325a995b9d6', 'instructor');
 
 -- --------------------------------------------------------
 
@@ -125,7 +124,7 @@ INSERT INTO `blog_comments` (`id`, `user_id`, `post_id`, `created_at`, `updated_
 CREATE TABLE `blog_post` (
   `id` int(11) NOT NULL,
   `blog_title` varchar(200) NOT NULL,
-  `blog_description` varchar(200) NOT NULL,
+  `blog_description` text NOT NULL,
   `blog_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `user_email` varchar(200) NOT NULL,
   `image` varchar(200) DEFAULT NULL,
@@ -146,7 +145,8 @@ CREATE TABLE `blog_post` (
 INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `user_email`, `image`, `blog_name`, `blog_category`, `blog_id`, `blog_author_id`, `blog_tag`, `blog_author`, `blog_status`, `created_at`) VALUES
 (2, 'How to write a good article', 'Today we will learn how to write own article', '2020-08-11 10:04:24', 'sojebsikder@gmail.com', NULL, 'good-article', 'Science', '321212121', '15e33e46e4a171', NULL, 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
 (10, 'Learn calculas', '<h1>Welcome to Tutorial</h1><p><span style=\"background-color: rgb(255, 0, 0);\">Tutorial</span> begin</p>', '2020-08-11 10:04:29', 'sojebsikder@gmail.com', NULL, 'Learn-calculas', 'Math', '15f2fd76c29729', '15e33e46e4a171', 'calculas, math', 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
-(12, 'post with image', '<h1>Post with image</h1>', '2020-08-11 10:04:35', 'sojebsikder@gmail.com', 'assets/images/blog/adidas_Water_Drops-wallpaper-10653846.jpg1596971649-6862-adidas_Water_Drops-wallpaper-10653846.jpg', 'post-with-image', 'Math', '15f2fda81053ec', '15e33e46e4a171', 'image, with, post', 'sojebsikder', 'Publish', '2020-08-11 10:10:15');
+(12, 'post with image', '<h1>Post with image</h1>', '2020-08-11 10:04:35', 'sojebsikder@gmail.com', 'assets/images/blog/adidas_Water_Drops-wallpaper-10653846.jpg1596971649-6862-adidas_Water_Drops-wallpaper-10653846.jpg', 'post-with-image', 'Math', '15f2fda81053ec', '15e33e46e4a171', 'image, with, post', 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
+(15, 'আমার নাম সজিব', '<p>dsfedfd</p>', '2020-08-12 06:17:49', 'sojebsikder@gmail.com', 'assets/images/blog/1597213057-2403-', 'আমার-নাম-সজিব', 'Math', '15f33898101428', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-12 06:17:37');
 
 -- --------------------------------------------------------
 
@@ -799,13 +799,13 @@ ALTER TABLE `blog_category`
 -- AUTO_INCREMENT for table `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `blog_post`
 --
 ALTER TABLE `blog_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `blog_reply`

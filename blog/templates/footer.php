@@ -29,7 +29,7 @@ require_once("src/classes/Web.php");
                 <?php
                 $linkbyId ="blog-single.php?id={$getRecent['id']}";
                 //$linkbyName ="blog-single.php?id={$getRecent['blog_id']}&name={$getRecent['blog_name']}";
-                $linkbyName ="article/{$getRecent['blog_id']}/{$getRecent['blog_name']}";
+                $linkbyName ="article/{$getRecent['blog_id']}/".urlencode($getRecent['blog_name']);
                 ?>
 
               <div class="block-21 mb-4 d-flex">

@@ -111,7 +111,7 @@ if(isset($id) && isset($name)){
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-3 bread"><?php echo $dataRow['blog_title']; ?></h1>
+            <h2 class="mb-3 bread text-white"><?php echo $dataRow['blog_title']; ?></h2>
            
           </div>
         </div>
@@ -180,7 +180,7 @@ if(isset($id) && isset($name)){
 <br>
             <?php else: ?>
               <div class="well" style="margin-top: 20px;">
-                <h4 class="text-center"><a href="../login.php">Sign in</a> to post a comment</h4>
+                <h4 class="text-center"><a href="../../../login.php">Sign in</a> to post a comment</h4>
               </div>
             <?php endif ?>
 
@@ -350,7 +350,7 @@ if(isset($id) && isset($name)){
               <?php endif ?>
 
                 <div class="text">
-                  <h3 class="heading"><a href="../<?php echo $latestPost['blog_id']; ?>/<?php echo $latestPost['blog_name']; ?>"><?php echo $latestPost['blog_title']; ?></a></h3>
+                  <h3 class="heading"><a href="../<?php echo urlencode($latestPost['blog_id']); ?>/<?php echo urlencode($latestPost['blog_name']); ?>"><?php echo $latestPost['blog_title']; ?></a></h3>
                   <div class="meta">
                     <div><a href="#"><span class="icon-calendar"></span> <?php echo Format::formatDate($latestPost['blog_date']); ?></a></div>
                     <div><a href="#"><span class="icon-person"></span> <?php echo $latestPost['blog_author']; ?></a></div>
@@ -407,7 +407,7 @@ require_once("src/classes/Web.php");
                 <?php
                 $linkbyId ="blog-single.php?id={$getRecent['id']}";
                 //$linkbyName ="blog-single.php?id={$getRecent['blog_id']}&name={$getRecent['blog_name']}";
-                $linkbyName ="../{$getRecent['blog_id']}/{$getRecent['blog_name']}";
+                $linkbyName ="../{$getRecent['blog_id']}/".urlencode($getRecent['blog_name']);
                 ?>
 
               <div class="block-21 mb-4 d-flex">

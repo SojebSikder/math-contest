@@ -111,7 +111,7 @@ if(isset($_POST['submit']))
     <label class="float-left" for="psk">Show Password</label>
 
  
-      <p class="float-right">Already have an account? <a href="signup.php">Login</a></p>
+      <p class="float-right">Already have an account? <a href="instructor.php">Login</a></p>
       <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Register</button>
     </form>
 
