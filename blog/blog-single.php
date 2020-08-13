@@ -180,7 +180,7 @@ if(isset($id) && isset($name)){
 <br>
             <?php else: ?>
               <div class="well" style="margin-top: 20px;">
-                <h4 class="text-center"><a href="../../../login.php">Sign in</a> to post a comment</h4>
+                <h4 class="text-center"><a href="../../../login.php?reurl=<?php echo $_SERVER['HTTP_HOST']."/".$_SERVER['REQUEST_URI']; ?>">Sign in</a> to post a comment</h4>
               </div>
             <?php endif ?>
 

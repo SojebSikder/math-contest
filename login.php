@@ -28,7 +28,14 @@ if(isset($_POST['submit']))
       $_SESSION['name']=$row['user_name'];
       $_SESSION['login']=$row['user_login'];
       $_SESSION['id']=$row['user_id'];
-      Format::jumpTo("index.php", "Login Successfully.");
+
+      if(isset($_REQUEST['reurl'])){
+        $url = $_REQUEST['reurl'];
+        Format::jumpTo("https://" .$url, "Login Successfully.");
+      }else{
+        Format::jumpTo("index.php", "Login Successfully.");
+      }
+      
     }
     else{
       Format::jumpTo("login.php", "Something went wrong.");
