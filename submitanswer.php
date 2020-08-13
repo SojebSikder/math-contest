@@ -20,9 +20,10 @@ label {
 $db = new Database();
 $format = new Format();
 
+$add = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 //!isset($_SESSION['name'],$_SESSION['login']) ||
 if (!(isset($_SESSION['name'], $_SESSION['login']) || isset($_SESSION['ins_name'], $_SESSION['ins_login']))) {
-  header("location: login.php?msg=You have to Login First");
+  header("location: login.php?reurl=".$add);
 }
 
 
