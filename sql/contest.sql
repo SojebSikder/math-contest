@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2020 at 08:28 AM
+-- Generation Time: Aug 13, 2020 at 01:23 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -143,10 +143,12 @@ CREATE TABLE `blog_post` (
 --
 
 INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `user_email`, `image`, `blog_name`, `blog_category`, `blog_id`, `blog_author_id`, `blog_tag`, `blog_author`, `blog_status`, `created_at`) VALUES
-(2, 'How to write a good article', 'Today we will learn how to write own article', '2020-08-11 10:04:24', 'sojebsikder@gmail.com', NULL, 'good-article', 'Science', '321212121', '15e33e46e4a171', NULL, 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
 (10, 'Learn calculas', '<h1>Welcome to Tutorial</h1><p><span style=\"background-color: rgb(255, 0, 0);\">Tutorial</span> begin</p>', '2020-08-11 10:04:29', 'sojebsikder@gmail.com', NULL, 'Learn-calculas', 'Math', '15f2fd76c29729', '15e33e46e4a171', 'calculas, math', 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
 (12, 'post with image', '<h1>Post with image</h1>', '2020-08-11 10:04:35', 'sojebsikder@gmail.com', 'assets/images/blog/adidas_Water_Drops-wallpaper-10653846.jpg1596971649-6862-adidas_Water_Drops-wallpaper-10653846.jpg', 'post-with-image', 'Math', '15f2fda81053ec', '15e33e46e4a171', 'image, with, post', 'sojebsikder', 'Publish', '2020-08-11 10:10:15'),
-(15, 'আমার নাম সজিব', '<p>dsfedfd</p>', '2020-08-12 06:17:49', 'sojebsikder@gmail.com', 'assets/images/blog/1597213057-2403-', 'আমার-নাম-সজিব', 'Math', '15f33898101428', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-12 06:17:37');
+(15, 'আমার নাম সজিব', '<p>dsfedfd</p>', '2020-08-12 06:17:49', 'sojebsikder@gmail.com', 'assets/images/blog/1597213057-2403-', 'আমার-নাম-সজিব', 'Math', '15f33898101428', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-12 06:17:37'),
+(17, 'as', '<p>asas</p>', '2020-08-13 10:25:29', 'sojebsikder@gmail.com', 'assets/images/blog/Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg1597217403-5281-Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg', 'as', 'Science', '15f339a7b5415a', '15e33e46e4a171', 'as', 'sojebsikder', 'Publish', '2020-08-12 07:30:03'),
+(18, 'test (asdasd)', '<p>saddsd</p>', '2020-08-13 10:25:31', 'sojebsikder@gmail.com', 'assets/images/blog/1597314289-9728-', 'test-(asdasd)', 'Math', '15f3514f114093', '15e33e46e4a171', 'sd', 'sojebsikder', 'Publish', '2020-08-13 10:24:49'),
+(19, 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', '<p>hello worldxc</p>', '2020-08-13 11:04:40', 'sojebsikder@gmail.com', 'assets/images/blog/Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg1597316680-4340-Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg', 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', 'Science', '15f351607cee92', '15e33e46e4a171', 'test', 'sojebsikder', 'Publish', '2020-08-13 10:29:27');
 
 -- --------------------------------------------------------
 
@@ -364,6 +366,13 @@ CREATE TABLE `post` (
   `post_ans` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `post_title`, `post_author`, `post_date`, `post_modified`, `post_content`, `post_image`, `category`, `problem`, `post_ans`) VALUES
+(4, 'df', 'sojebsikder', '2020-08-12 07:09:49', '2020-08-12 07:09:49', 'df', 'img/post_image/1597216189-9508-', 'Daily Math Challenge', '15f3395bd49ac3', 10);
+
 -- --------------------------------------------------------
 
 --
@@ -579,9 +588,9 @@ CREATE TABLE `web` (
   `about_us` text NOT NULL,
   `contact_us` text NOT NULL,
   `email` varchar(200) NOT NULL,
-  `address` varchar(200) NOT NULL,
-  `description` varchar(200) DEFAULT NULL,
-  `keywords` varchar(200) DEFAULT NULL
+  `address` text DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `keywords` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -805,7 +814,7 @@ ALTER TABLE `blog_comments`
 -- AUTO_INCREMENT for table `blog_post`
 --
 ALTER TABLE `blog_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `blog_reply`
@@ -865,7 +874,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product`
