@@ -11,14 +11,14 @@ function getPost(){
 
 function getPostNameById($id){
     global $db;
-    $result = $db->select("SELECT * FROM blog_post WHERE blog_id='$id' AND blog_status = 'Publish'")->fetch_assoc();
+    $result = $db->select("SELECT * FROM blog_post WHERE blog_id='$id' AND blog_status = 'Publish' ORDER BY id DESC")->fetch_assoc();
 
     return $result['blog_name'];
 }
 
 function getPostById($id){
     global $db;
-    $result = $db->select("SELECT * FROM blog_post WHERE id='$id' AND blog_status = 'Publish'")->fetch_assoc();
+    $result = $db->select("SELECT * FROM blog_post WHERE id='$id' AND blog_status = 'Publish' ORDER BY id DESC")->fetch_assoc();
 
     return $result;
 }
@@ -32,7 +32,7 @@ function getLatestPost(){
 
 function getPostByCategory($category){
     global $db;
-    $result = $db->select("SELECT * FROM blog_post WHERE blog_category = '$category' ORDER BY id DESc");
+    $result = $db->select("SELECT * FROM blog_post WHERE blog_category = '$category' ORDER BY id DESC");
 
     return $result;
 }
