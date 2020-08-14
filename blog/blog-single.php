@@ -215,7 +215,6 @@ if(isset($id) && isset($name)){
 
                     <div class="meta mb-3"><?php echo Format::formatDate($getcomments['created_at']); ?></div>
                     <p><?php echo $getcomments['body']; ?></p>
-                    <p><a href="#" class="reply">Reply</a></p>
 
 
                     <?php if($getcomments['user_type'] == "user"): ?>
@@ -237,7 +236,7 @@ if(isset($id) && isset($name)){
 
                     <?php if(isset($user_name) || isset($ins_name)): ?>
 
-                    <form action="comment.php" method="post" class="reply_form clearfix" id="comment_reply_form_<?php echo $getcomments['comment_id']; ?>" data-id="<?php echo $getcomments['comment_id']; ?>">
+                    <form action="<?php echo URL; ?>comment.php" method="post" class="reply_form clearfix" id="comment_reply_form_<?php echo $getcomments['comment_id']; ?>" data-id="<?php echo $getcomments['comment_id']; ?>">
                       <input type="hidden" value="<?php echo $getid; ?>" name="post_id">
                       <input type="hidden" value="<?php echo $getcomments['comment_id']; ?>" name="comment_id">
                       <textarea required class="form-control" name="reply_text" id="reply_text" cols="30" rows="2"></textarea>

@@ -10,7 +10,7 @@ $username = $_SESSION['ins_name'];
 $userlogin = $_SESSION['ins_login'];
 $user_id = $_SESSION['ins_id'];
 
-$add = "https://mathcontest.ml/";
+$add = $_SERVER['HTTP_HOST'];
 
 //delete blog
 if($userlogin){

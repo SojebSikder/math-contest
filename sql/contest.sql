@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2020 at 01:23 PM
+-- Generation Time: Aug 13, 2020 at 02:44 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -118,6 +118,26 @@ INSERT INTO `blog_comments` (`id`, `user_id`, `post_id`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blog_file`
+--
+
+CREATE TABLE `blog_file` (
+  `id` int(11) NOT NULL,
+  `file_id` text NOT NULL,
+  `file_url` text NOT NULL,
+  `user_id` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog_file`
+--
+
+INSERT INTO `blog_file` (`id`, `file_id`, `file_url`, `user_id`) VALUES
+(6, '15f3533242706a', 'assets/images/blog/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1597322020-6084-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg', '15e33e46e4a171');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `blog_post`
 --
 
@@ -148,7 +168,8 @@ INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `u
 (15, 'আমার নাম সজিব', '<p>dsfedfd</p>', '2020-08-12 06:17:49', 'sojebsikder@gmail.com', 'assets/images/blog/1597213057-2403-', 'আমার-নাম-সজিব', 'Math', '15f33898101428', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-12 06:17:37'),
 (17, 'as', '<p>asas</p>', '2020-08-13 10:25:29', 'sojebsikder@gmail.com', 'assets/images/blog/Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg1597217403-5281-Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg', 'as', 'Science', '15f339a7b5415a', '15e33e46e4a171', 'as', 'sojebsikder', 'Publish', '2020-08-12 07:30:03'),
 (18, 'test (asdasd)', '<p>saddsd</p>', '2020-08-13 10:25:31', 'sojebsikder@gmail.com', 'assets/images/blog/1597314289-9728-', 'test-(asdasd)', 'Math', '15f3514f114093', '15e33e46e4a171', 'sd', 'sojebsikder', 'Publish', '2020-08-13 10:24:49'),
-(19, 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', '<p>hello worldxc</p>', '2020-08-13 11:04:40', 'sojebsikder@gmail.com', 'assets/images/blog/Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg1597316680-4340-Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg', 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', 'Science', '15f351607cee92', '15e33e46e4a171', 'test', 'sojebsikder', 'Publish', '2020-08-13 10:29:27');
+(19, 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', '<p>hello worldxc</p>', '2020-08-13 11:04:40', 'sojebsikder@gmail.com', 'assets/images/blog/Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg1597316680-4340-Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg', 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', 'Science', '15f351607cee92', '15e33e46e4a171', 'test', 'sojebsikder', 'Publish', '2020-08-13 10:29:27'),
+(20, 'with pic', '<p><img src=\"http://localhost/math-contest/assets/images/blog/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1597322020-6084-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg\" style=\"width: 480px;\"><br></p>', '2020-08-13 12:35:28', 'sojebsikder@gmail.com', 'assets/images/blog/1597322087-2552-', 'with-pic', 'Math', '15f35336712ba6', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-13 12:34:47');
 
 -- --------------------------------------------------------
 
@@ -643,6 +664,12 @@ ALTER TABLE `blog_comments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `blog_file`
+--
+ALTER TABLE `blog_file`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `blog_post`
 --
 ALTER TABLE `blog_post`
@@ -811,10 +838,16 @@ ALTER TABLE `blog_comments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
+-- AUTO_INCREMENT for table `blog_file`
+--
+ALTER TABLE `blog_file`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `blog_post`
 --
 ALTER TABLE `blog_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `blog_reply`
