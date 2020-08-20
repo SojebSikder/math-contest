@@ -1,42 +1,17 @@
 <?php include "inc/header.php"; ?>
 
-<style>
-.pulse {
+<?php 
+if(isset($_REQUEST['unsubcribe'])){
+  $id= $_REQUEST['unsubcribe'];
+  $ex = $db->delete("DELETE FROM newsletter WHERE uid='$id'");
 
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: inherit;
-    border-radius: inherit;
-    transition: opacity .3s, transform .3s;
-    animation: pulse-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
-    z-index: -1;
-  
-
-  overflow: visible;
-  position: relative;
-}
-
-@keyframes pulse-animation {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0;
-    transform: scale(1.5);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.5);
+  if($ex){
+    Format::goto("index.php?msg=Unsubscibed");
   }
 }
-</style>
 
+
+?>
 <div class="container-fluid">
   <div id="section1" class="container-fluid bg-dark text-white rounded" style="padding-top:70px;padding-bottom:70px">
   <center><h1>Welcome to The <?php echo web("web_title");?></h1></center>

@@ -20,10 +20,19 @@ function sendNewsEmail($title, $description, $id, $name){
 
   $sql = "SELECT * FROM newsletter ";
   $dataEmail = $db->select($sql);
+
+  if($dataEmail){
+    
+  
     while($row = $dataEmail->fetch_assoc()) {
     $email = $row['email'];
 
+
+    $emailId = $db->select("SELECT * FROM newsletter WHERE email ='$email'");
+
+  
     $url="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."/blog/$id/$name";
+    
 
     $message="<html>";
     $message.="<body>";
@@ -33,11 +42,23 @@ function sendNewsEmail($title, $description, $id, $name){
 
     $message.="<small><a href='$url'>Click to open in browser</a></small>";
 
+    if($emailId){
+      $getId = $emailId->fetch_assoc();
+
+      $urlun="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."?unsubcribe={$getId['uid']}";
+      $message.="<br><small><a href='$urlun'>Unsubscribe</a></small>";
+    }
+   
+
     $message.="</body>";
     $message.="</html>";
 
     sendEmail($email,"New Math Corner Blog appear | Math Corner", $message);
     }
+
+  }else{
+
+  }
 }
 
 //end email functinon

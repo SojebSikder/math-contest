@@ -15,8 +15,9 @@ $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 if(isset($_POST['newssubmit'])){
   $email = $format->Stext($_POST['news-email']);
   $ip   = $_SERVER['REMOTE_ADDR'];
+  $id = uniqid(true);
 
-  $newsletter = $db->insert("INSERT INTO newsletter(email, ip) VALUES('$email' ,'$ip')");
+  $newsletter = $db->insert("INSERT INTO newsletter(uid, email, ip) VALUES('$id', '$email' ,'$ip')");
 
   if($newsletter){
     Format::goto("http://".$url);

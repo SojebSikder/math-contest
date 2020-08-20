@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2020 at 02:44 PM
+-- Generation Time: Aug 20, 2020 at 11:29 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -169,7 +169,8 @@ INSERT INTO `blog_post` (`id`, `blog_title`, `blog_description`, `blog_date`, `u
 (17, 'as', '<p>asas</p>', '2020-08-13 10:25:29', 'sojebsikder@gmail.com', 'assets/images/blog/Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg1597217403-5281-Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg', 'as', 'Science', '15f339a7b5415a', '15e33e46e4a171', 'as', 'sojebsikder', 'Publish', '2020-08-12 07:30:03'),
 (18, 'test (asdasd)', '<p>saddsd</p>', '2020-08-13 10:25:31', 'sojebsikder@gmail.com', 'assets/images/blog/1597314289-9728-', 'test-(asdasd)', 'Math', '15f3514f114093', '15e33e46e4a171', 'sd', 'sojebsikder', 'Publish', '2020-08-13 10:24:49'),
 (19, 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', '<p>hello worldxc</p>', '2020-08-13 11:04:40', 'sojebsikder@gmail.com', 'assets/images/blog/Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg1597316680-4340-Allah_arabic_words-98cae692-c1d2-4ed3-913e-212cedfa448d.jpg', 'পৃথিবীতে-পাহাড়ের-ভূমিকা-কি?-(কুরান-এবং-বিজ্ঞান-কি-বলে-এ-ব্যাপারে)', 'Science', '15f351607cee92', '15e33e46e4a171', 'test', 'sojebsikder', 'Publish', '2020-08-13 10:29:27'),
-(20, 'with pic', '<p><img src=\"http://localhost/math-contest/assets/images/blog/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1597322020-6084-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg\" style=\"width: 480px;\"><br></p>', '2020-08-13 12:35:28', 'sojebsikder@gmail.com', 'assets/images/blog/1597322087-2552-', 'with-pic', 'Math', '15f35336712ba6', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-13 12:34:47');
+(20, 'with pic', '<p><img src=\"http://localhost/math-contest/assets/images/blog/Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg1597322020-6084-Alan_Walker-418a76d7-f861-4ba0-9e0f-4989119eaa64.jpg\" style=\"width: 480px;\"><br></p>', '2020-08-13 12:35:28', 'sojebsikder@gmail.com', 'assets/images/blog/1597322087-2552-', 'with-pic', 'Math', '15f35336712ba6', '15e33e46e4a171', '', 'sojebsikder', 'Publish', '2020-08-13 12:34:47'),
+(21, 'as', '<p>as</p>', '2020-08-20 09:18:44', 'sojebsikder@gmail.com', 'assets/images/blog/1597915124-9905-', 'as', 'Math', '15f3e3ff4a748c', '15e33e46e4a171', 'as', 'sojebsikder', 'Unpublish', '2020-08-20 09:18:44');
 
 -- --------------------------------------------------------
 
@@ -278,6 +279,27 @@ CREATE TABLE `leaderboard` (
   `user_id` varchar(200) NOT NULL,
   `points` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `id` int(11) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `ip` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `newsletter`
+--
+
+INSERT INTO `newsletter` (`id`, `email`, `ip`) VALUES
+(1, 'sojebsikder@gmail.com', '::1'),
+(2, 'sojebsikder@gmail.com', '::1'),
+(3, 'sojebsikder10@gmail.com', '::1');
 
 -- --------------------------------------------------------
 
@@ -392,7 +414,19 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `post_title`, `post_author`, `post_date`, `post_modified`, `post_content`, `post_image`, `category`, `problem`, `post_ans`) VALUES
-(4, 'df', 'sojebsikder', '2020-08-12 07:09:49', '2020-08-12 07:09:49', 'df', 'img/post_image/1597216189-9508-', 'Daily Math Challenge', '15f3395bd49ac3', 10);
+(4, 'df', 'sojebsikder', '2020-08-12 07:09:49', '2020-08-12 07:09:49', 'df', 'img/post_image/1597216189-9508-', 'Daily Math Challenge', '15f3395bd49ac3', 10),
+(5, 'as', 'sojebsikder', '2020-08-20 08:43:59', '2020-08-20 08:43:59', 'as', 'img/post_image/1597913039-1525-', 'Daily Math Challenge', '15f3e37cf21398', 10),
+(6, 'as', 'sojebsikder', '2020-08-20 08:44:35', '2020-08-20 08:44:35', 'as', 'img/post_image/1597913075-7667-', 'Daily Math Challenge', '15f3e37f3e8111', 10),
+(7, 'fdfdf', 'sojebsikder', '2020-08-20 08:51:33', '2020-08-20 08:51:33', 'sdfdsf', 'img/post_image/1597913493-3114-', 'Daily Math Challenge', '15f3e39950c448', 10),
+(8, 'asas', 'sojebsikder', '2020-08-20 08:54:32', '2020-08-20 08:54:32', 'asas', 'img/post_image/1597913672-8929-', 'Daily Math Challenge', '15f3e3a489dbab', 10),
+(9, 'with setting', 'sojebsikder', '2020-08-20 08:55:39', '2020-08-20 08:55:39', 'gh', 'img/post_image/1597913739-3884-', 'Daily Math Challenge', '15f3e3a8b1edb0', 10),
+(10, 'asas', 'sojebsikder', '2020-08-20 08:59:43', '2020-08-20 08:59:43', 'asas', 'img/post_image/1597913983-7303-', 'Daily Math Challenge', '15f3e3b7fb5255', 5),
+(11, 'assa', 'sojebsikder', '2020-08-20 09:03:54', '2020-08-20 09:03:54', 'asas', 'img/post_image/1597914234-1298-', 'Daily Math Challenge', '15f3e3c7af0eab', 10),
+(12, 'as', 'sojebsikder', '2020-08-20 09:04:44', '2020-08-20 09:04:44', 'asas', 'img/post_image/1597914284-3380-', 'Daily Math Challenge', '15f3e3cacee9fb', 2),
+(13, 'as', 'sojebsikder', '2020-08-20 09:06:46', '2020-08-20 09:06:46', 'asas', 'img/post_image/1597914406-1513-', 'Daily Math Challenge', '15f3e3d2633abe', 20),
+(14, 'asasasa', 'sojebsikder', '2020-08-20 09:07:51', '2020-08-20 09:07:51', 'as', 'img/post_image/1597914471-6128-', 'Daily Math Challenge', '15f3e3d675a7aa', 5),
+(15, 'as', 'sojebsikder', '2020-08-20 09:13:39', '2020-08-20 09:13:39', 'asas', 'img/post_image/1597914819-7525-', 'Daily Math Challenge', '15f3e3ec33dab4', 10),
+(16, 'asas', 'sojebsikder', '2020-08-20 09:14:24', '2020-08-20 09:14:24', 'as', 'img/post_image/1597914864-1248-', 'Daily Math Challenge', '15f3e3ef0aaa27', 2);
 
 -- --------------------------------------------------------
 
@@ -485,7 +519,8 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `user_name`, `user_login`, `user_pass`, `user_registered`, `user_status`, `display_name`, `user_email`, `type`, `ipadd`, `user_date`, `user_city`, `user_state`, `user_country`, `user_bio`, `user_image`, `user_id`) VALUES
-(6, 'sojebsikder', 'sojebsikder@gmail.com', 'c0035b21cc82f4cc08b169ba252458d3', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', 'img/profile/Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg1596975834-7184-Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg', '15f0c17af2e6c9');
+(6, 'sojebsikder', 'sojebsikder@gmail.com', 'c0035b21cc82f4cc08b169ba252458d3', '2020-07-13 08:13:35', 'active', 'sojebsikder', 'sojebsikder@gmail.com', 'user', '::1', '0000-00-00', '', '', '', '', 'img/profile/Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg1596975834-7184-Argentina-a248e746-309a-40be-8152-ce1bb49bcd4a.jpg', '15f0c17af2e6c9'),
+(25, 'test', '', '$2y$10$F98Bxyo/gmn2uZgX62a.yeqQn0znTs6kHpBZddgU5mNiNCr3ir0E6', '2020-08-15 10:53:43', '', '', 'test@gmail.com', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -706,6 +741,12 @@ ALTER TABLE `leaderboard`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `notifications`
 --
 ALTER TABLE `notifications`
@@ -835,7 +876,7 @@ ALTER TABLE `blog_category`
 -- AUTO_INCREMENT for table `blog_comments`
 --
 ALTER TABLE `blog_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `blog_file`
@@ -847,13 +888,13 @@ ALTER TABLE `blog_file`
 -- AUTO_INCREMENT for table `blog_post`
 --
 ALTER TABLE `blog_post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `blog_reply`
 --
 ALTER TABLE `blog_reply`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -878,6 +919,12 @@ ALTER TABLE `instructor`
 --
 ALTER TABLE `leaderboard`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -907,7 +954,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -925,7 +972,7 @@ ALTER TABLE `product_category`
 -- AUTO_INCREMENT for table `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `roles`
