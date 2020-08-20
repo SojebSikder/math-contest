@@ -19,9 +19,17 @@ $author = $_SESSION['ins_name'];
 function sendNewsEmail($title, $description, $cat, $linkid){
 
   include_once "classes/Email.php"; 
+  global $db;
+ // $email = array('user1@example.com','user2@example.com',
+  //'user3@example.com','user4@example.com','user5@example.com');
+  
+$email = "";
 
-
-  $email = $format->Stext($_POST['email']);
+  $sql = "SELECT * FROM newsletter ";
+  $dataEmail = $db->select($sql);
+    while($row = $dataEmail->fetch_assoc()) {
+    $email = $row['email'];
+  }
 
   $url="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."/problem.php?CategoryID=$cat&LinkID=$linkid";
 

@@ -10,7 +10,7 @@ require "./lib/PHPMailer/src/PHPMailer.php";
 require "./lib/PHPMailer/src/SMTP.php";
 
 
-function sendEmail($address, $subject, $body){
+function sendEmail($address, $subject, $body, $arr = false){
 
     $mail = new PHPMailer(true);
     try {
@@ -25,7 +25,7 @@ function sendEmail($address, $subject, $body){
         $mail->Port = 587;
 
         //Recipients
-        $mail->setFrom("mathcontest@gmail.com","Math Contest");
+        $mail->setFrom("mathcorner@gmail.com","Math Corner");
         $mail->addAddress($address);
 
 
