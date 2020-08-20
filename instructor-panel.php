@@ -23,28 +23,28 @@ function sendNewsEmail($title, $description, $cat, $linkid){
  // $email = array('user1@example.com','user2@example.com',
   //'user3@example.com','user4@example.com','user5@example.com');
   
-$email = "";
+  $email = array();
 
   $sql = "SELECT * FROM newsletter ";
   $dataEmail = $db->select($sql);
     while($row = $dataEmail->fetch_assoc()) {
     $email = $row['email'];
-  }
 
-  $url="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."/problem.php?CategoryID=$cat&LinkID=$linkid";
+    $url="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."/problem.php?CategoryID=$cat&LinkID=$linkid";
 
-  $message="<html>";
-  $message.="<body>";
+    $message="<html>";
+    $message.="<body>";
 
-  $message.="<h1>$title</h1>";
-  $message.="<p>$description<p>";
+    $message.="<h1>$title</h1>";
+    $message.="<p>$description<p>";
 
-  $message.="<small><a href='$url'>Click to open in browser</a></small>";
+    $message.="<small><a href='$url'>Click to open in browser</a></small>";
 
-  $message.="</body>";
-  $message.="</html>";
+    $message.="</body>";
+    $message.="</html>";
 
-  sendEmail($email,"New Math Problem appear | Math Corner", $message);
+    sendEmail($email,"New Math Problem appear | Math Corner", $message);
+    }
 }
 
 //end email functino
