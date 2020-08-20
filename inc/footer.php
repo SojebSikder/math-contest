@@ -6,8 +6,21 @@ $format = new Format();
 $sql     = "SELECT * FROM web";
 $aboutus = $db->select($sql);
 if($aboutus){
-  $info      = $aboutus->fetch_assoc();
+  $info        = $aboutus->fetch_assoc();
   $contactInfo = $format->Stext($info['contact_us'],"<br>");
+}
+
+$url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+//for newsletter
+if(isset($_POST['newssubmit'])){
+  $email = $format->Stext($_POST['news-email']);
+  $ip   = $_SERVER['REMOTE_ADDR'];
+
+  $newsletter = $db->insert("INSERT INTO newsletter(email, ip) VALUES('$email' ,'$ip')");
+
+  if($newsletter){
+    Format::goto("http://".$url);
+  }
 }
 ?>
 
@@ -37,9 +50,10 @@ if($aboutus){
         </div>
         <div class="col-lg-3 col-md-6 footer-newsletter">
           <h4>Our Newsletter</h4>
+          <h6>We will let you know new contest and blogs. Subscribe now!</h6>
           <p>_______________________________________</p>
-          <form action="" accept="" method="post">
-            <input type="email" name="email" id="" placeholder="E-Mail"><input type="submit" value="Subscribe">
+          <form action="" method="post">
+            <input type="email" name="news-email" id="" placeholder="E-Mail"><input type="submit" name="newssubmit" value="Subscribe">
           </form>
         </div>
       </div>

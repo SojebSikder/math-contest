@@ -3,9 +3,8 @@ include "inc/header.php";
 include "classes/WinMat.php";
 include "classes/Post.php";
 //include "helpers/Format.php";
-
-$format = new Format();
 $db = new Database();
+$format = new Format();
 
 
 if (!isset($_SESSION['ins_login'])) {
@@ -13,6 +12,34 @@ if (!isset($_SESSION['ins_login'])) {
 }
 
 $author = $_SESSION['ins_name'];
+
+
+//email function
+
+function sendNewsEmail($title, $description, $cat, $linkid){
+
+  include_once "classes/Email.php"; 
+
+
+  $email = $format->Stext($_POST['email']);
+
+  $url="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."/problem.php?CategoryID=$cat&LinkID=$linkid";
+
+  $message="<html>";
+  $message.="<body>";
+
+  $message.="<h1>$title</h1>";
+  $message.="<p>$description<p>";
+
+  $message.="<small><a href='$url'>Click to open in browser</a></small>";
+
+  $message.="</body>";
+  $message.="</html>";
+
+  sendEmail($email,"New Math Problem appear | Math Corner", $message);
+}
+
+//end email functino
 
 if(isset($_GET['del'])){
   $id       = $format->Stext($_GET['del']);
@@ -32,7 +59,7 @@ $GetDataCat = $db->select($queryCat);
 //end for displaying cetegory
 
 //algorithom for problem id auto generating
-$problemId=uniqid(true);
+$problemId = uniqid(true);
 //end algorithom
 
 //insert problem to database
@@ -55,7 +82,11 @@ if(isset($_POST['submitP']))
   $query = "INSERT INTO post (post_title,post_author,post_content,category,problem,post_ans,post_image)
   VALUES ('$title','$author','$content','$cat','$problemId','$ans','$new_name')";
 
-  $read =$db->insert($query);
+  $read = $db->insert($query);
+
+  if($read){
+    sendNewsEmail($title, Format::textShorten($content), $cat, $problemId);
+  }
 
 }
 

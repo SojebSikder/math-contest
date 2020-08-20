@@ -52,7 +52,7 @@ if(isset($_GET['error'])){
 
 
   
- <title><?php echo web("web_title");?></title>
+ <title><?php echo web("web_title");?> - <?php echo web("web_slogan");?></title>
 
  <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-88930775-2"></script>
