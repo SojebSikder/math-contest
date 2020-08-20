@@ -7,6 +7,41 @@ if (!isset($_SESSION['ins_login'])) {
   Format::jumpTo("instructor.php","Login First");
 }
 
+//email function
+
+function sendNewsEmail($title, $description, $id, $name){
+
+  include_once "classes/Email.php"; 
+  global $db;
+ // $email = array('user1@example.com','user2@example.com',
+  //'user3@example.com','user4@example.com','user5@example.com');
+  
+  $email = array();
+
+  $sql = "SELECT * FROM newsletter ";
+  $dataEmail = $db->select($sql);
+    while($row = $dataEmail->fetch_assoc()) {
+    $email = $row['email'];
+
+    $url="http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"])."/blog/$id/$name";
+
+    $message="<html>";
+    $message.="<body>";
+
+    $message.="<h1>$title</h1>";
+    $message.="<p>$description<p>";
+
+    $message.="<small><a href='$url'>Click to open in browser</a></small>";
+
+    $message.="</body>";
+    $message.="</html>";
+
+    sendEmail($email,"New Math Corner Blog appear | Math Corner", $message);
+    }
+}
+
+//end email functinon
+
 
 
 if(isset($_POST['postBlog'])){
@@ -43,7 +78,7 @@ if(isset($_POST['postBlog'])){
     $exe = $db->insert($sql);
 
     if($exe){
-
+      sendNewsEmail($title, Format::textShorten($desc), $blog_id, $blog_name);
     }else{
       Format::jumpTo("post_blog.php","Something wrong. Try to not use tags");
     }

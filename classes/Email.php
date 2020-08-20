@@ -38,7 +38,7 @@ function sendEmail($address, $subject, $body, $arr = false){
         $mail->Body = $body;
 
         $mail->send();
-        echo "Message has been sent";
+        //echo "Message has been sent";
 
 
     } catch (Exception $e) {
