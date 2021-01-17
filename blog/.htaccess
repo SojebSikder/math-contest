@@ -11,3 +11,8 @@ RewriteEngine on
 # RewriteRule ^article/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ blog-single.php?id=$1&name=$2 [NC,L]
 
 RewriteRule ^article/(.*)/(.*)/?$ blog-single.php?id=$1&name=$2 [NC,L]
+
+
+<IfModule mod_headers.c>
+Header set Access-Control-Allow-Origin "*"
+</IfModule>

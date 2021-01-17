@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 20, 2020 at 11:29 AM
+-- Generation Time: Aug 20, 2020 at 12:13 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -289,17 +289,16 @@ CREATE TABLE `leaderboard` (
 CREATE TABLE `newsletter` (
   `id` int(11) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `ip` text NOT NULL
+  `ip` text NOT NULL,
+  `uid` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `newsletter`
 --
 
-INSERT INTO `newsletter` (`id`, `email`, `ip`) VALUES
-(1, 'sojebsikder@gmail.com', '::1'),
-(2, 'sojebsikder@gmail.com', '::1'),
-(3, 'sojebsikder10@gmail.com', '::1');
+INSERT INTO `newsletter` (`id`, `email`, `ip`, `uid`) VALUES
+(5, 'sojebsikder10@gmail.com', '::1', '15f3e4ab985ae2');
 
 -- --------------------------------------------------------
 
@@ -426,7 +425,14 @@ INSERT INTO `post` (`id`, `post_title`, `post_author`, `post_date`, `post_modifi
 (13, 'as', 'sojebsikder', '2020-08-20 09:06:46', '2020-08-20 09:06:46', 'asas', 'img/post_image/1597914406-1513-', 'Daily Math Challenge', '15f3e3d2633abe', 20),
 (14, 'asasasa', 'sojebsikder', '2020-08-20 09:07:51', '2020-08-20 09:07:51', 'as', 'img/post_image/1597914471-6128-', 'Daily Math Challenge', '15f3e3d675a7aa', 5),
 (15, 'as', 'sojebsikder', '2020-08-20 09:13:39', '2020-08-20 09:13:39', 'asas', 'img/post_image/1597914819-7525-', 'Daily Math Challenge', '15f3e3ec33dab4', 10),
-(16, 'asas', 'sojebsikder', '2020-08-20 09:14:24', '2020-08-20 09:14:24', 'as', 'img/post_image/1597914864-1248-', 'Daily Math Challenge', '15f3e3ef0aaa27', 2);
+(16, 'asas', 'sojebsikder', '2020-08-20 09:14:24', '2020-08-20 09:14:24', 'as', 'img/post_image/1597914864-1248-', 'Daily Math Challenge', '15f3e3ef0aaa27', 2),
+(17, 'as', 'sojebsikder', '2020-08-20 09:53:23', '2020-08-20 09:53:23', 'asas', 'img/post_image/1597917203-9880-', 'Daily Math Challenge', '15f3e481317491', 10),
+(18, 'asas', 'sojebsikder', '2020-08-20 09:55:11', '2020-08-20 09:55:11', 'aasa', 'img/post_image/1597917311-3981-', 'Daily Math Challenge', '15f3e487f7dbb3', 10),
+(19, 'as', 'sojebsikder', '2020-08-20 09:57:09', '2020-08-20 09:57:09', 'asas', 'img/post_image/1597917429-2903-', 'Daily Math Challenge', '15f3e48f5902e8', 0),
+(20, 'as', 'sojebsikder', '2020-08-20 09:57:26', '2020-08-20 09:57:26', 'asas', 'img/post_image/1597917446-5661-', 'Daily Math Challenge', '15f3e490620b58', 0),
+(21, 'sdsd', 'sojebsikder', '2020-08-20 09:58:47', '2020-08-20 09:58:47', 'sd', 'img/post_image/1597917527-3005-', 'Daily Math Challenge', '15f3e4957d51ce', 10),
+(22, 'problem', 'sojebsikder', '2020-08-20 10:00:58', '2020-08-20 10:00:58', 'sdsd', 'img/post_image/1597917658-3930-', 'Daily Math Challenge', '15f3e49dabf78f', 10),
+(23, 'asas', 'sojebsikder', '2020-08-20 10:05:07', '2020-08-20 10:05:07', 'asas', 'img/post_image/1597917907-8786-', 'Daily Math Challenge', '15f3e4ad3b94bc', 10);
 
 -- --------------------------------------------------------
 
@@ -924,7 +930,7 @@ ALTER TABLE `leaderboard`
 -- AUTO_INCREMENT for table `newsletter`
 --
 ALTER TABLE `newsletter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -954,7 +960,7 @@ ALTER TABLE `permissions`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `product`
